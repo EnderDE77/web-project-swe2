@@ -1,0 +1,225 @@
+:root {
+    --primary-color: #ffffff;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-color);
+
+  }
+.main{
+width:100%;
+background: linear-gradient(to top, rgba(255, 255, 255, 0.5)50%,rgba(255, 255, 255, 0.5)50%),url("opop.jpg");
+background-position:center;
+background-size: cover;
+height: 100%;
+}
+
+.navbar{
+    width: 100%;
+    height: 4.688em;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    
+    .logo{
+    display: flex;
+    align-items: center;
+    padding-top: 1.25em; 
+    }
+    
+    #logo1{
+    width: 3.75em;
+    height: 3.75em;
+    margin-left: 3.125em;
+    }
+    
+    #nameofshop{
+    font-size: 1.25em;
+    font-family: sans-serif;
+    color: #ccafaf;
+    margin-left: 0.313em;
+    }
+    
+    .menu{
+    width: 50em;
+    height: 4.375em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.25em; 
+    }
+    
+    ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    }
+    
+    ul li{
+    list-style:none;
+    margin-right: 3.75em; /*This is a defect*/
+     
+    margin-left: 3.125em;
+    }
+    
+    ul li a{
+    text-decoration: none;
+    color:rgb(207, 190, 183);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    transition: 0.4s ease-in-out;
+    }
+    
+    ul li a:hover{
+    color:rgb(137, 188, 202);
+    }
+    
+    .reg{
+        display: flex;
+        align-items: center;
+        padding-top: 1.25em;
+        margin-right: 1.25em; /* Updated margin */
+    }
+    
+    #find{
+        width: 1.875em;
+        height: 1.875em;
+        margin-right: 1.25em; /* Updated margin */
+        border-radius: 6.25em;
+    }
+    
+    #searchBar {
+        width: 9.375em;
+        height: 1.875em;
+        display: inline-block;
+        margin-right: 1.25em; /* Updated margin */
+        padding: 0.313em; /* Added padding */
+        border: 0.063em solid #ccc; /* Added border */
+        border-radius: 0.25em; /* Added border radius */
+    }
+    
+    #register {
+        margin-right: 1.25em;
+        margin-left: 1.25em;
+        width: 6.25em;
+        height: 2.188em;
+        border: 0.063em solid #ccc;
+        transition: 0.6s ease-in-out;
+    }
+    
+    #login {
+        margin-left: 0.5em;
+        width: 6.25em;
+        height: 2.188em;
+        border: 0.063em solid #ccc;
+        transition: 0.6s ease-in-out;
+    }
+    
+    #register:hover{
+        background-color: rgb(216, 195, 169);
+        cursor:pointer;
+    }
+    #login:hover{
+        background-color: rgb(216, 195, 169);
+        cursor:pointer;
+    }
+    
+    #find:hover{
+        background-color: rgb(227, 212, 194);
+        cursor:pointer;
+    }
+
+
+    .text{
+        font-size: 1.5em;
+    }
+
+    .txt1{
+        display: table;
+        background-color: bisque;
+        margin-top: 10;
+    }
+
+    .ab_us{
+        font-family: Arial, Helvetica, sans-serif;
+        padding-top: 2em;
+        padding-bottom: 3em;
+        font-size: 0.90em;
+        margin-left: 17em;
+        margin-right: 20em;
+    }
+    
+    .abu_usc{
+        margin-left: 0;
+        background-color: #E2CCCC;
+        border: 3px solid #E0AEAE;
+    }
+
+    .prodrange{
+        font-family: Arial, Helvetica, sans-serif;
+        padding-top: 2em;
+        font-size: 0.85em;
+        margin-left: 3em;
+        margin-right: 55em;
+        padding-bottom: 3em;
+    }
+
+    .prodrangec{
+        margin-left: 0;
+        background-color: #E2CCCC;
+        border: 2px solid #E0AEAE;
+    }
+
+    .exserv{
+        font-family: Arial, Helvetica, sans-serif;
+        margin-left: 60em;
+        margin-right: 5em;
+        padding-bottom: 3em;
+        font-size: 0.85em;
+    }
+
+    .exservc{
+            margin-left: 0;
+            background-color: #E2CCCC;
+             border: 2px solid #E0AEAE;
+    }
+
+    .convacc{
+        font-family: Arial, Helvetica, sans-serif;
+        margin-left: 3em;
+        margin-right: 55em;
+        font-size: 0.85em;
+        padding-bottom: 3em;
+    }
+
+    .convacc1 {
+        margin-left: 0;
+        background-color: #E2CCCC;
+        border: 2px solid #E0AEAE;
+    }
+
+    .staycon{
+        font-family: Arial, Helvetica, sans-serif;
+        margin-left: 20em;
+        margin-right: 20em;
+        padding-top: 2em;
+        padding-bottom: 2em;
+        font-size: 0.85em;
+    }
+   
+    .staycon_c{
+        margin-left: 0;
+        background-color: #E2CCCC;
+        border: 5px solid #E0AEAE;
+    }
+
+   .image{
+    margin-left: 35em;
+        margin-right: 20em;
+   }
