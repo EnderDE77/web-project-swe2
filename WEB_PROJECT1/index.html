@@ -38,8 +38,8 @@
             <!-- <a href="#"><ion-icon id="find" name="search"></ion-icon></a> -->
             <input type="searchBar" name="searchBar" id="searchBar" placeholder="SearchBar">
             <!-- <button type="submit" class="searchButton"><i class="fas fa-search"></i></button> -->
-        <button type="click" id="register">Register</button>
-        <button type="click" id="login">Log in</button>
+        <button onclick="openRegistration()" type="click" id="register">Register</button>
+        <button onclick="openLogIn()" type="click" id="login">Log in</button>
         </div>
 
     </div>
@@ -119,5 +119,18 @@
 </div>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script>
+    function openRegistration(){
+        window.location.href="Registration.html";
+    }
+</script>
+
+<script>
+    function openLogIn(){
+        window.location.href="LogIn.html";
+    }
+</script>
+
+
 </body>
 </html>
