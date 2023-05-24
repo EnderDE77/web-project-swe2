@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2023 at 07:56 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: May 24, 2023 at 09:33 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -82,7 +82,8 @@ CREATE TABLE `user` (
   `level` char(1) NOT NULL,
   `name` varchar(20) NOT NULL,
   `surname` varchar(20) NOT NULL,
-  `email` varchar(30) NOT NULL
+  `email` varchar(30) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
