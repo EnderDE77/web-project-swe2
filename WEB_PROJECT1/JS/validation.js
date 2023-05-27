@@ -2,7 +2,21 @@ const validation = new JustValidate("#signup");
 const validation1 = new JustValidate("#signin");
 
 validation 
-.addField("#Username" , [
+.addField("#Level" , [
+    {
+        rule: "required"
+       
+    }
+])
+
+.addField("#Name" , [
+    {
+        rule: "required"
+       
+    }
+])
+
+.addField("#Surname" , [
     {
         rule: "required"
        
@@ -13,6 +27,9 @@ validation
     {
         rule: "required"
        
+    },
+    {
+        rule: "email"
     }
 ])
 
@@ -20,7 +37,10 @@ validation
     {
         rule: "required"
        
-    }
+    },
+    {
+     rule: "password"
+ }
 ])
 
 .onSuccess((event)=>{
@@ -28,20 +48,26 @@ validation
        })
 
 
-       validation1
+ validation1
        
        .addField("#Email" , [
            {
                rule: "required"
               
-           }
+           },
+           {
+            rule: "email"
+        }
        ])
        
        .addField("#Password" , [
            {
                rule: "required"
               
-           }
+           },
+           {
+            rule: "password"
+        }
        ])
        
        .onSuccess((event)=>{

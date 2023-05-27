@@ -2,8 +2,8 @@
 
 if($_SERVER["REQUEST_METHOD"]==="POST")
 {
-    $mySQL=require __DIR__ . "/database.php";
-    $sql=sprintf("SELECT * from user_data WHERE Email='%s'",$mySQL->real_escape_string($_POST["Email"]));
+    $mySQL=require __DIR__ . "/database1.php";
+    $sql=sprintf("SELECT * from user WHERE Email='%s'",$mySQL->real_escape_string($_POST["Email"]));
 
 
     $result =$mySQL->query($sql);

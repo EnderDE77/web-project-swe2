@@ -14,13 +14,17 @@
     
     <title>signin-signup</title>
 
+
+
+    <!-- The style for the sentence validation -->
+
     <style>
                 .just-validate-error-label {
                 margin-top:5px;
-                margin-right:130px;
-                color:blue;
+                margin-right:125px;
+                color: red;
                 font-family:"Times New Roman";
-                font-size:17px;
+                font-size:15px;
                 opacity: 0.5;
                 
                 }
@@ -36,15 +40,15 @@
 
 
 
-            <form action="loginprocess.php" method="post" class="sign-in-form">
+            <form id="signin" action="loginprocess.php" method="post" class="sign-in-form">
                 <h2 class="title">Sign in</h2>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
-                    <input name="Email" type="text" placeholder="Email">
+                    <input id="Email" name="Email" type="text" placeholder="Email">
                 </div>
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
-                    <input name="Password" type="password" placeholder="Password">
+                    <input id="Password" name="Password" type="password" placeholder="Password">
                 </div>
                 <input type="submit" value="Login" class="btn">
                 <p class="social-text">Or Sign in with social platform</p>
@@ -65,23 +69,28 @@
                 <p class="account-text">Don't have an account? <a href="#" id="sign-up-btn2">Sign up</a></p>
             </form>
 
-            <script>
-    const signUpForm = document.getElementById("signin");
-    const emailInput = signUpForm.querySelector("#Email");
-    const passInput = signUpForm.querySelector("#Password");
 
-    signUpForm.addEventListener("submit", (e) => {
+
+
+            <!-- javascript for the signinform -->
+
+            <script>
+    const signInForm = document.getElementById("signin");
+    const emailInput = signInForm.querySelector("#Email");
+    const passInput = signInForm.querySelector("#Password");
+
+    signInForm.addEventListener("submit", (e) => {
         if (!emailInput.value) {
+
             e.preventDefault();
-            emailInput.setAttribute("placeholder", "");
+            emailInput.setAttribute("placeholder", " ");
             
-            passInput.setAttribute("placeholder", "");
         }
-        else if(!passInput.value)
+         if(!passInput.value)
         {
             e.preventDefault();
           
-            passInput.setAttribute("placeholder", "");
+            passInput.setAttribute("placeholder", " ");
         }
     });
 </script>
@@ -89,26 +98,48 @@
            
           
 
+
+
             <form   id="signup" action="signinprocess.php" method="post" class="sign-up-form">
                 <h2 class="title">Sign up</h2>
-                <div class="input-field">
-                    <i class="fas fa-user"></i>
-                    <input id="Username" name="Username" type="text" placeholder="Username">
-                    <div>
-                         
-                    </div>
-                </div>
+           
+              
 
-                
                 <div class="input-field">
-                    <i class="fas fa-envelope"></i>
-                    <input id="Email" name="Email" type="text" placeholder="Email">
-                </div>
-                <div class="input-field">
-                    <i class="fas fa-lock"></i>
-                    <input id="Password" name="Password" type="password" placeholder="Password">
-                </div>
-                <input type="submit" value="Sign up" class="btn">
+        <i class="fas fa-user"></i>
+        <input id="Level" name="Level" type="text" placeholder="Level">
+        <div>
+
+        </div>
+    </div>
+
+    <div class="input-field">
+        <i class="fas fa-user"></i>
+        <input id="Name" name="Name" type="text" placeholder="Name">
+        <div>
+
+        </div>
+    </div>
+
+    <div class="input-field">
+        <i class="fas fa-user"></i>
+        <input id="Surname" name="Surname" type="text" placeholder="Surname">
+        <div>
+
+        </div>
+    </div>
+
+    <div class="input-field">
+        <i class="fas fa-envelope"></i>
+        <input id="Email" name="Email" type="text" placeholder="Email">
+    </div>
+
+    <div class="input-field">
+        <i class="fas fa-lock"></i>
+        <input id="Password" name="Password" type="password" placeholder="Password">
+    </div>
+
+    <input type="submit" value="Sign up" class="btn">
                 <p class="social-text">Or Sign in with social platform</p>
                 <div class="social-media">
                     <a href="#" class="social-icon">
@@ -127,30 +158,42 @@
                 <p class="account-text">Already have an account? <a href="#" id="sign-in-btn2">Sign in</a></p>
             </form>
 
+
+            <!-- javascript for sign up validation -->
+
             <script>
     const signUpForm = document.getElementById("signup");
+    const levelInput = signUpForm.querySelector("#Level");
+    const nameInput = signUpForm.querySelector("#Name");
+    const surnameInput = signUpForm.querySelector("#Surname");
     const emailInput = signUpForm.querySelector("#Email");
-    const usernameInput = signUpForm.querySelector("#Username");
     const passInput = signUpForm.querySelector("#Password");
 
     signUpForm.addEventListener("submit", (e) => {
         if (!emailInput.value) {
             e.preventDefault();
-            emailInput.setAttribute("placeholder", "");
+            emailInput.setAttribute("placeholder", " ");
+
+        }
+        if (!passInput.value) {
+            e.preventDefault();
+            passInput.setAttribute("placeholder", " ");
+
+        }
+        if (!nameInput.value) {
+            e.preventDefault();
+            nameInput.setAttribute("placeholder", " ");
+        
+        }
+        if (!surnameInput.value) {
+            e.preventDefault();
+            surnameInput.setAttribute("placeholder", " ");
             
-            passInput.setAttribute("placeholder", "");
         }
-        else if(!passInput.value)
-        {
+        if (!levelInput.value) {
             e.preventDefault();
-          
-            passInput.setAttribute("placeholder", "");
-        }
-        else if(!usernameInput.value)
-        {
-            e.preventDefault();
-          
-            usernameInput.setAttribute("placeholder", "");
+            levelInput.setAttribute("placeholder", " ");
+           
         }
     });
 </script>
@@ -186,6 +229,7 @@
 
 
     <script>
+
 const sign_in_btn = document.querySelector("#sign-in-btn");
 const sign_up_btn = document.querySelector("#sign-up-btn");
 const container = document.querySelector(".container");
@@ -213,3 +257,8 @@ sign_in_btn2.addEventListener("click", () => {
 
     </script>
 </body>
+
+
+
+
+
