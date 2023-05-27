@@ -2,19 +2,10 @@
 
 $connection = include './connection.php';
 
-// $search = '; DROP Tabale 'product'';
-$tableName = 'product';
-
-function searchProducts($connection, $tableName, $search) {
+function searchProducts($connection, $search) {
     $search = "%$search%";
 
-    // placeholder 1 ?
-    // placeholder 2 :search
-    $sql = "SELECT * FROM $tableName WHERE name LIKE :search;";
-    // $sql = "SELECT * FROM $tableName WHERE name LIKE %:search%";
-
-    // $sql = "SELECT * FROM $tableName WHERE name LIKE %$search%";
-    // $sql = "SELECT * FROM $tableName WHERE name LIKE %; DROP Table product;%";
+    $sql = "SELECT * FROM `product` WHERE name LIKE :search;";
 
     $statement = $connection->prepare($sql);
     $statement->bindParam(':search', $search);
@@ -23,19 +14,14 @@ function searchProducts($connection, $tableName, $search) {
     } catch (PDOException $error) {
         throw $error;
     }
-    // $statement->execute([':search' => $search]);
+    
     $result = $statement->fetchAll();
     $statement->closeCursor();
     return $result;
 }
-function getProducts($connection, $tableName) {
-    // placeholder 1 ?
-    // placeholder 2 :search
-    $sql = "SELECT * FROM $tableName";
-    // $sql = "SELECT * FROM $tableName WHERE name LIKE %:search%";
 
-    // $sql = "SELECT * FROM $tableName WHERE name LIKE %$search%";
-    // $sql = "SELECT * FROM $tableName WHERE name LIKE %; DROP Table product;%";
+function getProducts($connection) {
+    $sql = "SELECT * FROM `product`;";
 
     $statement = $connection->prepare($sql);
     try {
@@ -43,7 +29,40 @@ function getProducts($connection, $tableName) {
     } catch (PDOException $error) {
         throw $error;
     }
-    // $statement->execute([':search' => $search]);
+    
+    $result = $statement->fetchAll();
+    $statement->closeCursor();
+    return $result;
+}
+
+function getProductsId($connection, $id) {
+
+    $sql = "SELECT * FROM `product` WHERE id = $id;";
+
+    $statement = $connection->prepare($sql);
+    try {
+        $statement->execute();
+    } catch (PDOException $error) {
+        throw $error;
+    }
+    
+    $result = $statement->fetchAll();
+    $statement->closeCursor();
+    return $result;
+}
+function setProductToCart($connection, $product, $quantity, $cartId){
+
+    $product = @$product['id'];
+
+    $sql = "INSERT INTO `cartcontains` VALUES ($product,$cartId,$quantity);";
+
+    $statement = $connection->prepare($sql);
+    try {
+        $statement->execute();
+    } catch (PDOException $error) {
+        throw $error;
+    }
+    
     $result = $statement->fetchAll();
     $statement->closeCursor();
     return $result;

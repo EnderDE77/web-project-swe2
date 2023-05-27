@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Buyings</title>
 </head>
 <body>
     <?php require_once "./product.controller.php" ?>
@@ -17,7 +17,7 @@
         </select><br>
         <label for="quantity">Quantity</label>
         <input type="number" name="quantity" id="quantity" min="1"><br>
-        <input type="submit" name="submit" value="Search">
+        <button type="submit">Search</button>
     </form>
     <table border="2">
         <thead>
@@ -25,9 +25,18 @@
             <th>Price</th>
             <th>Quantity</th>
         </thead>
-        <tbody id="billBody">
+    <?php require_once "./product.controller.php" ?>
+        <tbody>
+            <?php if(isset($chosenProducts)):?>
+            <?php foreach($chosenProducts as $product): ?>
+                <tr>
+                    <td><?= $product[0]?></td>
+                    <td><?= $product[1]?></td>
+                    <td><?= $product[2]?></td>
+                </tr>
+            <?php endforeach;?>
+            <?php endif;?>
         </tbody>
     </table>
-    <script src="addition.js"></script>
 </body>
 </html>
