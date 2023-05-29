@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,23 +7,19 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="../STYLE/loginstyle.css">
     <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
+
     
-    <script src="../JS/validation.js" defer></script>
+    <script src="../JS/validation_1.js" defer></script>
     
     <title>signin-signup</title>
 
 
-
     <!-- The style for the sentence validation -->
 
-    <style>
+        <style>
                 .just-validate-error-label {
-                margin-top:5px;
-                margin-right:125px;
-                color: red;
-                font-family:"Times New Roman";
-                font-size:15px;
-                opacity: 0.5;
+             margin-top: 90px;
+             margin-right: 120px;
                 
                 }
 
@@ -44,14 +38,14 @@
                 <h2 class="title">Sign in</h2>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
-                    <input id="Email" name="Email" type="text" placeholder="Email">
+                    <input id="Email1" name="Email" type="text" placeholder="Email">
                 </div>
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
-                    <input id="Password" name="Password" type="password" placeholder="Password">
+                    <input id="Password1" name="Password" type="password" placeholder="Password">
                 </div>
-                <input type="submit" value="Login" class="btn">
-                <p class="social-text">Or Sign in with social platform</p>
+                <input type="submit" value="Login" class="btn" style="margin-top: 30px;margin-bottom:5px">
+                <!-- <p class="social-text">Or Sign in with social platform</p> -->
                 <div class="social-media">
                     <a href="#" class="social-icon">
                         <i class="fab fa-facebook"></i>
@@ -74,33 +68,31 @@
 
             <!-- javascript for the signinform -->
 
-            <script>
+ <script>
     const signInForm = document.getElementById("signin");
-    const emailInput = signInForm.querySelector("#Email");
-    const passInput = signInForm.querySelector("#Password");
+    const EmailInput = signInForm.querySelector("#Email1");
+    const PassInput = signInForm.querySelector("#Password1");
 
     signInForm.addEventListener("submit", (e) => {
-        if (!emailInput.value) {
+        if (!EmailInput.value) {
 
             e.preventDefault();
-            emailInput.setAttribute("placeholder", " ");
-            
+          
         }
-         if(!passInput.value)
+         if(!PassInput.value)
         {
             e.preventDefault();
           
-            passInput.setAttribute("placeholder", " ");
+           
         }
     });
-</script>
-
+</script> 
            
           
 
 
 
-            <form   id="signup" action="signinprocess.php" method="post" class="sign-up-form">
+            <form  id="signup"action="signinprocess.php" method="post" class="sign-up-form">
                 <h2 class="title">Sign up</h2>
            
               
@@ -135,12 +127,17 @@
     </div>
 
     <div class="input-field">
-        <i class="fas fa-lock"></i>
+      <div>
+      <i class="fas fa-lock"></i>
+      </div>
         <input id="Password" name="Password" type="password" placeholder="Password">
+ 
     </div>
 
-    <input type="submit" value="Sign up" class="btn">
-                <p class="social-text">Or Sign in with social platform</p>
+    <input type="submit" value="Sign up" class="btn" style="margin-top: 30px;margin-bottom:5px">
+
+
+                <!-- <p class="social-text">Or Sign in with social platform</p> -->
                 <div class="social-media">
                     <a href="#" class="social-icon">
                         <i class="fab fa-facebook"></i>
@@ -172,27 +169,25 @@
     signUpForm.addEventListener("submit", (e) => {
         if (!emailInput.value) {
             e.preventDefault();
-            emailInput.setAttribute("placeholder", " ");
-
+           
         }
         if (!passInput.value) {
             e.preventDefault();
-            passInput.setAttribute("placeholder", " ");
+           
 
         }
         if (!nameInput.value) {
             e.preventDefault();
-            nameInput.setAttribute("placeholder", " ");
-        
+         
         }
         if (!surnameInput.value) {
             e.preventDefault();
-            surnameInput.setAttribute("placeholder", " ");
+            
             
         }
         if (!levelInput.value) {
             e.preventDefault();
-            levelInput.setAttribute("placeholder", " ");
+            
            
         }
     });
@@ -212,15 +207,15 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque accusantium dolor, eos incidunt minima iure?</p>
                     <button class="btn" id="sign-in-btn">Sign in</button>
                 </div>
-                <img src="signin.svg" alt="" class="image">
+                <!-- <img src="signin.svg" alt="" class="image"> -->
             </div>
             <div class="panel right-panel">
                 <div class="content">
                     <h3>New to Brand?</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque accusantium dolor, eos incidunt minima iure?</p>
-                    <button class="btn" id="sign-up-btn">Sign up</button>
+                    <button  class="btn" id="sign-up-btn" style="margin-top: 50px;">Sign up</button>
                 </div>
-                <img src="signup.svg" alt="" class="image">
+                <!-- <img src="signup.svg" alt="" class="image"> -->
             </div>
         </div>
     </div>
@@ -236,7 +231,8 @@ const container = document.querySelector(".container");
 const sign_in_btn2 = document.querySelector("#sign-in-btn2");
 const sign_up_btn2 = document.querySelector("#sign-up-btn2");
 
-sign_up_btn.addEventListener("click", () => {
+sign_up_btn.addEventListener("click", (e) => {
+    e.preventDefault(); 
     container.classList.add("sign-up-mode");
 });
 
@@ -246,19 +242,16 @@ sign_in_btn.addEventListener("click", (e) => {
     container.classList.remove("sign-up-mode");
 });
 
-sign_up_btn2.addEventListener("click", () => {
+sign_up_btn2.addEventListener("click", (e) => {
+    e.preventDefault(); 
     container.classList.add("sign-up-mode2");
 });
 
-sign_in_btn2.addEventListener("click", () => {
+sign_in_btn2.addEventListener("click", (e) => {
+       e.preventDefault(); 
     container.classList.remove("sign-up-mode2");
 });
 
 
     </script>
 </body>
-
-
-
-
-

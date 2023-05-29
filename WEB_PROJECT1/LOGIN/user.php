@@ -1,3 +1,9 @@
+<?php
+session_start();
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +14,12 @@
     <link rel="styl">
 </head>
 <body>
-    jksdvhksvgks
+    <?php if(isset($_SESSION["user_id"])):?>
+        <p>You are logged in.</p>
+
+        <?php else: ?>
+            <p><a href="SignUp.php">Log in</a></p>
+
+            <?php endif; ?>
 </body>
 </html>
