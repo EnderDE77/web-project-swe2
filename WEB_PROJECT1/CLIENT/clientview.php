@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="client-view.css">
 
 </head>
 <body>
 
 
 <section class="products" id="products">
-    <script src="clientv.js"></script>
     <h1 class="heading">Our <span>products</span></h1>
-    
+    <?php require_once "./product.controller.php";?>
+    <?php foreach($productList as $product):?>
     <div class="item">
         <div class="buttons">
             <span class="delete-btn"></span>
@@ -21,11 +21,11 @@
         </div>
 
         <div class="image">
-            <img src="item1.png" alt=""/>
+            <img src=<?= $product['imgPath']?> alt=""/>
         </div>
 
         <div class="description">
-            <span>Name of product</span>
+            <span><?=  $product['name'] ?></span>
         </div>
        
           
@@ -36,13 +36,14 @@
             <span class="plus">+</span>
           </div>
        
-          <div class="total-price">$3.99</div>
+          <div class="total-price">$<?=  $product['price'] ?></div>
         </div>
-       
-       
-
     </div>
+    <br>
+    <?php endforeach; ?>
 </section>
-
+<script src="./client.js"></script>
+</body>
+</html>
 
 
