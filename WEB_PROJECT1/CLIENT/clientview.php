@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="client-view.css">
-    
-<style>
+
+    <style>
     aside {
       width: 250px;
       padding: 20px;
@@ -22,25 +22,27 @@
       font-weight: bold;
     }
   </style>
-</head>
-<body>
 
-<main>
-    <!-- Product listing -->
-  </main>
+
+</head>
+ <body>
   
+     <?php require_once "./product.controller.php";?> 
   <aside>
     <h2>Your Cart</h2>
     <ul id="cart-items">
-      <!-- Cart items will be dynamically added here -->
+        <?php if(isset($chosenProducts)):?>
+        <?php foreach($chosenProducts as $product):?>
+            <li><?= $productList[$product['productId']]['name']." $".$productList[$product['productId']]['price']." ".$product['quantity'] ?></li>
+        <?php endforeach;?>
+        <?php endif;?>
     </ul>
-    <p>Total: <span id="cart-total">$0</span></p>
+    <p>Total: <span id="cart-total">$<?= $payment['price']?></span></p>
   </aside>
-    
+
 <section class="products" id="products">
     <h1 class="heading">Our <span>products</span></h1>
-    <?php require_once "./product.controller.php";?>
-    <?php foreach($productList as $product):?>
+     <?php foreach($productList as $product):?>
     <div class="item">
         <div class="buttons">
             <span class="delete-btn"></span>
@@ -58,9 +60,8 @@
           
 
           <div class="number">
-            <span class="minus">-</span>
-            <input type="text" value="0"/>
-            <span class="plus">+</span>
+            <input type="number" value="0" min="0"/>
+            <span class="add">Add to cart</span>
           </div>
        
           <div class="total-price">$<?=  $product['price'] ?></div>
@@ -69,8 +70,5 @@
     <br>
     <?php endforeach; ?>
 </section>
-<script src="./client.js"></script>
 </body>
 </html>
-
-
