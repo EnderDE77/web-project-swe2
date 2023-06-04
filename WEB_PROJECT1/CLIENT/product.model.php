@@ -121,7 +121,7 @@ function getPayment($connection, $id){
     return $result;
 }
 
-function getPayment($connection, $id){
+function getCart($connection, $id){
     $sql = "SELECT * FROM `cart` WHERE id = $id;";
 
     $statement = $connection->prepare($sql);

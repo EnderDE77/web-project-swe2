@@ -19,7 +19,7 @@ if(isset($_SESSION['user_id'])){
     $payment = getPayment($connection,$payment_id)[0];
     $cart_id = createCart($mySQL, $user_id, $payment_id);
     $cart = getCart($connection,$cart_id)[0];
-
+}
 if((isset($_GET['name'])) &&
    isset($_GET['quantity'])){
 
