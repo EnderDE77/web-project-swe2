@@ -1,0 +1,179 @@
+.main{
+    width:100px;
+    height:100px;
+}
+.menu-container{
+    width: 100%;
+    height: 75px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    padding-top: 20px; 
+}
+
+#logo1{
+    width: 60px;
+    height: 60px;
+    margin-left: 50px;
+}
+
+#nameofshop{
+    font-size: 20px;
+    font-family: sans-serif;
+    color: #ccafaf;
+    margin-left: 5px;
+}
+
+.menu{
+    width: 800px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px; 
+}
+
+ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+ul li{
+    list-style:none;
+    margin-right: 60px; /*This is a defect*/
+        
+    margin-left: 50px;
+}
+
+ul li a{
+    text-decoration: none;
+    color:rgb(207, 190, 183);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    transition: 0.4s ease-in-out;
+}
+
+ul li a:hover{
+color:rgb(137, 188, 202);
+}
+
+
+.main-photo-container {
+    margin-top: 30px;
+    background-color: #ecdbc8;
+    height: 450px;
+    width: 500vh;
+    position: relative;
+    overflow: hidden;
+}
+
+#photo-main1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("../IMAGES/VegetablesAsthetics.jpg"); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* opacity: 0.2; */
+    z-index: -1;
+}
+
+#photo-main {
+    margin-left: 170px;
+    margin-top: 30px;
+    height: 400px;
+    width: 150vh;
+    box-shadow: #cf8f47 0 0 10px;
+    z-index: 1;
+}
+
+.big{
+    margin-top: 20px;
+    width: 500vh;
+    height:600px;
+    display:flex;
+    background-color: #ecdbc8;
+}
+.container {
+    margin-top: 20px;
+    margin-left: 250px;
+    width: 500px;
+    height: 300px;
+    background-color: #5b4b3b;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+}
+
+.form-group {
+    /* margin-bottom: 20px; */
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"] {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.upload-container {
+    width: 200px;
+    height:200px;
+    margin-top: 50px;
+    margin-left: 350px;
+    padding: 20px;
+    background-color: #fbfbfa;
+    border: 1px solid #ccc;
+    border-radius: 120px;
+}
+
+.upload-container label {
+    display: block;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+.upload-container input[type="file"] {
+    width: 180px;
+    height: 50px;
+    /* padding: 10px; */
+  margin-left: 5px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.upload-container input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 60px;
+}
+
+.upload-container input[type="submit"]:hover {
+    background-color: #45a049;
+    
+}

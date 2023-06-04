@@ -86,77 +86,99 @@ session_start();
 <html>
 <head>
     <title>Product Form</title>
-    <style>
-        /* CSS styles */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-        }
-
-        .container {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="number"] {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .form-group input[type="submit"] {
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .form-group input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <link rel="stylesheet" href="productstyle.css">
 </head>
 <body>
-    <div class="container">
+<div class="main">
+
+
+
+
+
+<div class="menu-container">
+
+<div class="logo">
+            <img id="logo1" src="../IMAGES/groceries.png" alt="Logo of gorceryShop">
+            <h4 id="nameofshop">GroceryMania</h4>
+        </div>
+
+
+        <div class="menu">
+            <ul>
+                <li id="home-txt"><a href="#">Create Product</a></li>
+                <li><a href="#">Product list</a></li>
+             </ul>
+        </div>
+
+</div>
+
+
+<div class="main-photo-container">
+<img id="photo-main1" src="../IMAGES/VegetablesAsthetics.jpg" alt="Main photo">
+
+<img id="photo-main" src="../IMAGES/VegetablesAsthetics.jpg" alt="Main photo">
+
+  </div>
+
+
+    <!-- <div class="container">
         <form>
-            <div class="form-group">
+            <div class="form-group1">
                 <label for="product-name">Name of Product:</label>
                 <input type="text" id="product-name" name="product-name" required>
             </div>
-            <div class="form-group">
+            <div class="form-group2">
                 <label for="price">Price:</label>
                 <input type="number" id="price" name="price" min="0" step="0.01" required>
+            </div>
+            <div class="form-group3">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="0" required>
+            </div>
+            <div class="form-group4">
+                <label for="image-path">Path of the Image:</label>
+                <input type="text" id="image-path" name="image-path" required>
+            </div>
+            <div class="form-group5">
+                <input type="submit" value="Submit">
+            </div>
+        </form> -->
+
+
+<div class="big">
+
+        <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
                 <label for="quantity">Quantity:</label>
                 <input type="number" id="quantity" name="quantity" min="0" required>
             </div>
             <div class="form-group">
-                <label for="image-path">Path of the Image:</label>
-                <input type="text" id="image-path" name="image-path" required>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Submit">
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" min="0" step="0.01" required>
             </div>
         </form>
+    </div>
+
+    <div class="upload-container">
+        <form>
+            <div class="form-group">
+                <label for="image">Upload Picture:</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+            </div>
+            <input type="submit" value="Upload">
+        </form>
+    </div>
+    </div>
+    </div>
+
+
+
+
     </div>
 </body>
 </html>
