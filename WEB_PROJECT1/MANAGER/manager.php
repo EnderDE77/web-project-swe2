@@ -3,6 +3,56 @@
 <head>
     <title>Product Form</title>
     <link rel="stylesheet" href="productstyle.css">
+    <script>
+        function validateForm() {
+            var name = document.forms["productForm"]["name"].value;
+            var quantity = document.forms["productForm"]["quantity"].value;
+            var price = document.forms["productForm"]["price"].value;
+            var image = document.forms["productForm"]["image"].value;
+            var hasError = false;
+
+            if (name === "") {
+                document.forms["productForm"]["name"].setAttribute("placeholder", "Please enter a name");
+                hasError = true;
+            }
+            if (quantity === "") {
+                document.forms["productForm"]["quantity"].setAttribute("placeholder", "Please enter a quantity");
+                hasError = true;
+            }
+            if (price === "") {
+                document.forms["productForm"]["price"].setAttribute("placeholder", "Please enter a price");
+                hasError = true;
+            }
+            if (image === "") {
+                document.forms["productForm"]["image"].setAttribute("placeholder", "Please upload an image");
+                hasError = true;
+            }
+
+            if (hasError) {
+                return false;
+            }
+
+            // Perform additional HTTP validation
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    var response = JSON.parse(this.responseText);
+                    if (response.error) {
+                        alert(response.message);
+                        return false;
+                    } else {
+                        // Validation passed, submit the form
+                        document.forms["productForm"].submit();
+                    }
+                }
+            };
+            xhttp.open("POST", "validation_endpoint.php", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("name=" + name + "&quantity=" + quantity + "&price=" + price + "&image=" + image);
+
+            return false; // Prevent form submission
+        }
+    </script>
 </head>
 <body>
 <div class="main">
@@ -24,7 +74,7 @@
     </div>
     <div class="big">
         <div class="container">
-            <form method="post" action="../MANAGER/createproduct.php" enctype="multipart/form-data">
+            <form name="productForm" method="post" action="../MANAGER/createproduct.php" enctype="multipart/form-data" onsubmit="return validateForm()">
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name">
