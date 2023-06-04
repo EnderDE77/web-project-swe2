@@ -1,66 +1,68 @@
 <?php
-session_start();
-
-if (isset($_SESSION["user_id"])) {
-    // Check if the form is submitted
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Process the form data
-        $name = $_POST["name"];
-        $quantity = $_POST["quantity"];
-        $price = $_POST["price"];
-
-        // Upload the image file
-        $targetDir = "uploads/";
-        $imageName = "Cheries.jpg"; // Specify the image name here
-        $targetFile = $targetDir . $imageName;
-        $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-
-        // Check if the image file is a valid image
-        $check = getimagesize($_FILES["image"]["tmp_name"]);
-        if ($check !== false) {
-            $uploadOk = 1;
-        } else {
-            echo "Error: File is not an image.";
-            $uploadOk = 0;
-        }
-
-        // Check if the file already exists
-        if (file_exists($targetFile)) {
-            echo "Error: File already exists.";
-            $uploadOk = 0;
-        }
-
-        // Check the file size (limit it if necessary)
-        if ($_FILES["image"]["size"] > 500000) {
-            echo "Error: File size is too large.";
-            $uploadOk = 0;
-        }
-
-        // Allow only certain file formats (you can modify this if needed)
-        if (
-            $imageFileType != "jpg" &&
-            $imageFileType != "jpeg" &&
-            $imageFileType != "png"
-        ) {
-            echo "Error: Only JPG, JPEG, and PNG files are allowed.";
-            $uploadOk = 0;
-        }
-
-        // If the file is valid, move it to the target directory
-        if ($uploadOk) {
-            if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
-                // Save the image path to the database
-                // Insert the form data into the database along with the image path
-                // ... (your database code here)
-
-                echo "Image uploaded successfully.";
-            } else {
-                echo "Error: There was an error uploading the file.";
-            }
-        }
-    }
-} else {
-    echo "<p><a href='../LOGIN/SignUp.php'>Log in</a></p>";
+// Check if all required fields are filled in
+if (empty($_POST["name"])) {
+    die("Please enter a name");
 }
+if (empty($_POST["quantity"])) {
+    die("Please enter a quantity");
+}
+if (empty($_POST["price"])) {
+    die("Please enter a price");
+}
+if (empty($_FILES["image"])) {
+    die("Please upload an image");
+}
+
+// Connect to the database
+$host = "localhost";
+$dbname = "database";
+$username = "root";
+
+$mySQL = new mysqli($host, $username, "", $dbname);
+
+if ($mySQL->connect_error) {
+    die("Connect error: " . $mySQL->connect_error);
+}
+
+if (!$mySQL) {
+    die("Failed to connect to the database");
+}
+
+// Prepare the SQL statement
+$sql = "INSERT INTO product (name, price, quantity, imgPath) VALUES (?, ?, ?, ?)";
+
+$stmt = $mySQL->stmt_init();
+
+if (!$stmt->prepare($sql)) {
+    die("SQL Error: " . $stmt->error);
+}
+
+// Process the uploaded image
+$imagePath = "uploads/";
+
+if (isset($_FILES["image"]) && $_FILES["image"]["error"] === UPLOAD_ERR_OK) {
+    $tempPath = $_FILES["image"]["tmp_name"];
+    $fileName = $_FILES["image"]["name"];
+    $imagePath = "uploads/" . $fileName;
+    move_uploaded_file($tempPath, $imagePath);
+}
+print_r($imagePath);
+$stmt->bind_param("ssss", $_POST["name"], $_POST["price"], $_POST["quantity"], $imagePath);
+
+try {
+    // Execute the SQL statement
+    if ($stmt->execute()) {
+        header("location: listofproducts.php");
+        exit();
+    } else {
+        die("Something went wrong!");
+    }
+} catch (mysqli_sql_exception $e) {
+    if ($e->getCode() == 1062) {
+        die("Something went wrong!");
+    } else {
+        die("SQL Error: " . $e->getMessage());
+    }
+}
+die($imagePath);
 ?>
