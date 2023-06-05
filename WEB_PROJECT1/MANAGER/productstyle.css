@@ -48,9 +48,8 @@ ul{
 
 ul li{
     list-style:none;
-    margin-right: 60px; /*This is a defect*/
-        
-    margin-left: 50px;
+    margin-right: 150px; /*This is a defect*/
+    margin-left: 100px;
 }
 
 ul li a{
@@ -67,52 +66,38 @@ color:rgb(137, 188, 202);
 
 
 .main-photo-container {
-    margin-top: 30px;
-    background-color: #ecdbc8;
-    height: 450px;
-    width: 500vh;
     position: relative;
-    overflow: hidden;
-}
+    background-color: transparent;
+    height: 100vh;
+    width:200vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-#photo-main1 {
+  #photo-main {
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-image: url("../IMAGES/VegetablesAsthetics.jpg"); 
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* opacity: 0.2; */
+    margin-top: 20px;
+    height: 100vh;
+    width: 200vh;
+    opacity: 0.5;
     z-index: -1;
-}
+  }
 
-#photo-main {
-    margin-left: 170px;
-    margin-top: 30px;
-    height: 400px;
-    width: 150vh;
-    box-shadow: #cf8f47 0 0 10px;
-    z-index: 1;
-}
-
-.big{
+/* .big{
     margin-top: 20px;
     width: 500vh;
     height:600px;
     display:flex;
     background-color: #ecdbc8;
-}
+} */
 .container {
-    margin-top: 20px;
-    margin-left: 250px;
     width: 500px;
-    height: 300px;
-    background-color: #5b4b3b;
+    height: 500px;
+    background-color: transparent;
     border: 1px solid #ccc;
     border-radius: 50px;
-}
+  }
 
 .form-group {
     /* margin-bottom: 20px; */
@@ -122,22 +107,26 @@ color:rgb(137, 188, 202);
 
 .form-group label {
     display: block;
-    font-weight: bold;
+    font-weight: super bold;
     margin-bottom: 5px;
+    font-size: 20px;
+    color: rgb(149, 9, 9);
 }
 
 .form-group input[type="text"],
 .form-group input[type="number"] {
-    width: 300px;
-    padding: 10px;
+    width: 400px;
+    height: 40px;
+    margin-top: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    opacity: 0.5;
 }
 
 .upload-container {
     width: 200px;
     height:200px;
-    margin-top: 50px;
+    margin-top: 60px;
     margin-left: 350px;
     padding: 20px;
     background-color: #fbfbfa;
@@ -149,7 +138,7 @@ color:rgb(137, 188, 202);
     display: block;
     font-weight: bold;
     margin-left: 20px;
-    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 .upload-container input[type="file"] {
@@ -166,18 +155,32 @@ color:rgb(137, 188, 202);
 .upload-container input[type="submit"] {
     background-color: #4CAF50;
     color: #fff;
-    padding: 10px 20px;
+    padding: 20px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     margin-left: 60px;
+
 }
 
 .upload-container input[type="submit"]:hover {
     background-color: #45a049;
-    
 }
 
+#btn{
+    margin-top: 30px;
+    margin-left: 200px;
+    width:100px;
+    height:35px;
+    background-color: rgb(207, 120, 76);
+    border-color: #75230a;
+    background-color: transparent;
+    color:white;
+}
 
+#btn:hover{
+    
+    background-color: rgb(207, 120, 76);
+}
 
   
