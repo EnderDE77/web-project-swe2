@@ -53,25 +53,31 @@ function getProductsId($connection, $id) {
     return $result;
 }
 
-function createPayment($connection, $user){
+function createPayment($connection, $user) {
     $dateX = date("Y/m/d");
     $card = 'Card';
     $z = 0;
 
     // Check if the payment record already exists for the given user
-        $sql = "INSERT INTO `payment` (`price`, `date`, `method`, `payingUserId`) VALUE ($z, '$dateX' , '$card', $user)";
-    
-        $stmt = $connection->query($sql);
-        
-    $result = $connection->insert_id;
+    $sql = "INSERT INTO `payment` (`price`, `date`, `method`, `payingUserId`) VALUES (?, ?, ?, ?)";
+
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param("dssi", $z, $dateX, $card, $user);
+    $stmt->execute();
+
+    $result = $stmt->insert_id;
+    $stmt->close();
+
     return $result;
 }
 
 function createCart($connection, $user, $payment){
 
-    $sql = "INSERT INTO `cart` (cartPaymentId, cartHolderId) VALUE ($payment,$user);";
+    $sql = "INSERT INTO `cart` (cartPaymentId, cartHolderId) VALUE (?, ?);";
     
-        $stmt = $connection->query($sql);
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param("ii", $payment, $user);
+    $stmt->execute();
 
     $result = $connection->insert_id;
 
@@ -80,13 +86,11 @@ function createCart($connection, $user, $payment){
 
 function setProductToCart($connection, $product, $quantity, $cart){
 
-    $sql = "INSERT INTO `cartcontains` VALUES ($product,$cart,$quantity);";
+    $sql = "INSERT INTO `cartcontains` VALUES (?, ?, ?);";
 
-    try {
-        $connection->exec($sql);
-    } catch (PDOException $error) {
-        throw $error;
-    }
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param("iii", $product, $quantity, $cart);
+    $stmt->execute();
 }
 
 function getUser($connection, $id){

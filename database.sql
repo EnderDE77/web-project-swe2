@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2023 at 05:45 PM
+-- Generation Time: Jun 05, 2023 at 11:11 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -33,6 +33,13 @@ CREATE TABLE `cart` (
   `cartHolderId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `cartPaymentid`, `cartHolderId`) VALUES
+(38, 38, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -41,7 +48,8 @@ CREATE TABLE `cart` (
 
 CREATE TABLE `cartcontains` (
   `productId` int(11) NOT NULL,
-  `cartId` int(11) NOT NULL
+  `cartId` int(11) NOT NULL,
+  `quantity` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -58,6 +66,13 @@ CREATE TABLE `payment` (
   `payingUserId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`id`, `price`, `date`, `method`, `payingUserId`) VALUES
+(38, 0, '2023-06-05', 'Card', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -69,8 +84,16 @@ CREATE TABLE `product` (
   `name` varchar(20) NOT NULL,
   `price` float NOT NULL,
   `quantity` int(11) NOT NULL,
-  `imgPath` text NOT NULL
+  `imgPath` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`id`, `name`, `price`, `quantity`, `imgPath`) VALUES
+(1, 'Pencil', 29.99, 25, NULL),
+(2, 'Pen', 10, 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -86,6 +109,13 @@ CREATE TABLE `user` (
   `email` varchar(30) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `level`, `name`, `surname`, `email`, `password`) VALUES
+(1, '1', 'Erlis', 'Kendezi', 'erliskendezi@gmail.com', '$2y$10$byMBQ3MRMQ1Bc8Aq2xSBrOJyLKVl3kZNfzq5Y6QFIxiJxwYa2qbhy');
 
 -- --------------------------------------------------------
 
@@ -154,25 +184,25 @@ ALTER TABLE `userphoneno`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

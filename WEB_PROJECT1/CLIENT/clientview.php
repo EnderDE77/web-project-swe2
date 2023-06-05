@@ -1,6 +1,11 @@
+<?php
+  error_reporting(E_ALL);
+  ini_set('display_errors', 1);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Client</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,29 +76,7 @@
     </ul>
     <p>Total: <span id="cart-total">$<?= $payment['price']?></span></p>
   </aside>
-<script>
-    const productElements = document.getElementsByClassName('item');
-    console.log(productElements);
-    var chosenProd = -1;
-    var chosenquant = 0;
-
-    for(let i=0;i<productElements.length;i++){
-        productElements[i].children[3].children[1].addEventListener('click', () =>{
-            chosenquant = parseInt(productElements[i].children[3].children[1].value);
-            chosenProd = productElements[i].id;
-            console.log('ok1');
-            fetch("clientview.php", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-              },
-              body: `$product = getProduct($connection, ${chosenProd});
-                    echo var_dump($product);`,
-            })
-            console.log('ok2');
-        });
-    }
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>

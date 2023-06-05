@@ -20,13 +20,12 @@ if(isset($_SESSION['user_id'])){
     $cart_id = createCart($mySQL, $user_id, $payment_id);
     $cart = getCart($connection,$cart_id)[0];
 }
-if((isset($_GET['name'])) &&
-   isset($_GET['quantity'])){
 
-        $search = $_GET['name'];
-        $quantity = $_GET['quantity'];
-        $chosenProduct = getProductsId($connection, $search);
-        setProductToCart($connection, $chosenProduct, $quantity, $cart);
+if((isset($_POST['name']))){
+
+        $prod_id = $_GET['chosenProd'];
+        $quantity = $_GET['chosenQuant'];
+        setProductToCart($mySQL, $prod_id, $quantity, $cart_id);
     }
 
 try {
