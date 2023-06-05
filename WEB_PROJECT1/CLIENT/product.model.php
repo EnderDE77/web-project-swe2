@@ -80,9 +80,7 @@ function createCart($connection, $user, $payment){
 
 function setProductToCart($connection, $product, $quantity, $cart){
 
-    $product = @$product['id'];
-
-    $sql = "INSERT INTO `cartcontains` VALUES ($product,$cartId,$quantity);";
+    $sql = "INSERT INTO `cartcontains` VALUES ($product,$cart,$quantity);";
 
     try {
         $connection->exec($sql);

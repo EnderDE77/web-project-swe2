@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $level = $user["level"];
             // echo $level;
             if ($level === "1") {
-                header("Location: client.php");
+                header("Location: ../CLIENT/clientview.php");
             } elseif ($level === "2") {
                 header("Location: ../MANAGER/manager.php");
             } elseif($level === "3") {
