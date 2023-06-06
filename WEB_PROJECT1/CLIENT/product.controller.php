@@ -21,13 +21,6 @@ if(isset($_SESSION['user_id'])){
     $cart = getCart($connection,$cart_id)[0];
 }
 
-if((isset($_POST['name']))){
-
-        $prod_id = $_GET['chosenProd'];
-        $quantity = $_GET['chosenQuant'];
-        setProductToCart($mySQL, $prod_id, $quantity, $cart_id);
-    }
-
 try {
     $productList = getProducts($connection);
 } catch (PDOException $error) {

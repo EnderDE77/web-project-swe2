@@ -1,7 +1,3 @@
-<?php
-  error_reporting(E_ALL);
-  ini_set('display_errors', 1);
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,15 +32,17 @@
 
 <section class="products" id="products">
     <h1 class="heading">Our <span>products</span></h1>
-     <?php foreach($productList as $product):?>
-    <div class="item" id=<?= $product['id']?>>
+    <form method="POST" action="product.adder.php">
+     <?php foreach($productList as $product):
+        $product_id = strval($product['id']);?>
+    <div class="item">
         <div class="buttons">
             <span class="delete-btn"></span>
             <span class="like-btn"></span>
         </div>
 
         <div class="image">
-            <img src=""+<?= "".$product['imgPath']?> alt=""/>
+            <img src="<?= $product['imgPath']?>" alt=""/>
         </div>
 
         <div class="description">
@@ -54,15 +52,16 @@
           
 
           <div class="number">
-            <input type="number" value="0" min="0"/>
-            <span class="add">Add to cart</span>
+            <input type="number" name="<?= "q".$product_id?>" value="0" min="0" max="<?= $product['quantity']?>">
+            <input type="checkbox" name="<?= "$product_id"?>">
           </div>
        
           <div class="total-price">$<?=  $product['price'] ?></div>
         </div>
     </div>
-    <br>
     <?php endforeach; ?>
+    <button type="submit">Submit</button>
+     </form>
 </section>
 
   <aside>
@@ -76,7 +75,5 @@
     </ul>
     <p>Total: <span id="cart-total">$<?= $payment['price']?></span></p>
   </aside>
-<script src="script.js"></script>
-
 </body>
 </html>
