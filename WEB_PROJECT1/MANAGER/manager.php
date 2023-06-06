@@ -70,7 +70,7 @@
             <div class="menu">
                 <ul>
                     <li id="home-txt"><a href="#">Create Product</a></li>
-                    <li><a href="#">Product list</a></li>
+                    <li><a href="listofproducts.php">Product list</a></li>
                 </ul>
             </div>
         </div>
