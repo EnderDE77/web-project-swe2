@@ -37,7 +37,7 @@ function getProducts($connection) {
     return $result;
 }
 
-function getProductsId($connection, $id) {
+function getProduct($connection, $id) {
 
     $sql = "SELECT * FROM `product` WHERE id = $id;";
 
@@ -89,7 +89,7 @@ function setProductToCart($connection, $product, $quantity, $cart){
     $sql = "INSERT INTO `cartcontains` VALUES (?, ?, ?);";
 
     $stmt = $connection->prepare($sql);
-    $stmt->bind_param("iii", $product, $quantity, $cart);
+    $stmt->bind_param("iii", $product, $cart, $quantity);
     $stmt->execute();
 }
 
@@ -136,4 +136,49 @@ function getCart($connection, $id){
     $result = $statement->fetchAll();
     $statement->closeCursor();
     return $result;
+}
+
+function getChosenProducts($connection,$cart) {
+    $sql = "SELECT * FROM `cartcontains` WHERE cartId = $cart;";
+
+    $statement = $connection->prepare($sql);
+    try {
+        $statement->execute();
+    } catch (PDOException $error) {
+        throw $error;
+    }
+    
+    $result = $statement->fetchAll();
+    $statement->closeCursor();
+    return $result;
+}
+
+function lowerProductQuantity($connection, $product, $quantity){
+
+    $sql = "UPDATE `product` SET `quantity` = quantity - $quantity WHERE `id` = $product";
+
+    $statement = $connection->prepare($sql);
+    try {
+        $statement->execute();
+    } catch (PDOException $error) {
+        throw $error;
+    }
+    $statement->closeCursor();
+    
+}
+
+function modifyPaymentPrice($connection, $payment, $product, $quantity){
+
+    $prod = getProduct($connection, $product)[0]['price'];
+
+    $sql = "UPDATE `payment` SET `price` = price + ($quantity * $prod) WHERE `id` = $payment";
+
+    $statement = $connection->prepare($sql);
+    try {
+        $statement->execute();
+    } catch (PDOException $error) {
+        throw $error;
+    }
+    $statement->closeCursor();
+    
 }

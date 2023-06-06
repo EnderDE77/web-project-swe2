@@ -1,19 +1,29 @@
 <?php
+require_once "./product.model.php";
+session_start();
+$prod = [];
 $keys = [];
 $quants = [];
+$find = FALSE;
 foreach($_POST as $key => $value){
-    var_dump($key);
-    var_dump($value);
-    if($key[0] == 'q'){
-        array_push($quants, $value);
+    if(gettype($key) == "integer"){
+        array_push($keys, $key);
+        $find = TRUE;
     }
     else{
-        if(count($quants) - count($keys) > 1){
-            unset($keys[count($keys)-2]);
+        if($value == ''){}
+        $value = (int)$value;
+        if($value == 0){}
+        else if($find == TRUE){
+        array_push($quants, $value);
         }
-        array_push($keys, $key);
+        $find = FALSE;
     }
 }
-var_dump($keys);
-var_dump($quants);
-//header("Location: ./clientview.php");
+for($i = 0;$i<count($keys);$i++){
+    setProductToCart($mySQL, $keys[$i], $quants[$i], $_SESSION['cart_id']);
+    lowerProductQuantity($connection, $keys[$i], $quants[$i]);
+    modifyPaymentPrice($connection, $_SESSION['payment_id'], $keys[$i], $quants[$i]);
+}
+
+header("Location: ./clientview.php");

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2023 at 11:11 PM
+-- Generation Time: Jun 06, 2023 at 06:13 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -33,13 +33,6 @@ CREATE TABLE `cart` (
   `cartHolderId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`id`, `cartPaymentid`, `cartHolderId`) VALUES
-(38, 38, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -65,13 +58,6 @@ CREATE TABLE `payment` (
   `method` varchar(10) NOT NULL,
   `payingUserId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `payment`
---
-
-INSERT INTO `payment` (`id`, `price`, `date`, `method`, `payingUserId`) VALUES
-(38, 0, '2023-06-05', 'Card', 1);
 
 -- --------------------------------------------------------
 
@@ -115,18 +101,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `level`, `name`, `surname`, `email`, `password`) VALUES
-(1, '1', 'Erlis', 'Kendezi', 'erliskendezi@gmail.com', '$2y$10$byMBQ3MRMQ1Bc8Aq2xSBrOJyLKVl3kZNfzq5Y6QFIxiJxwYa2qbhy');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `userphoneno`
---
-
-CREATE TABLE `userphoneno` (
-  `phoneNo` char(10) NOT NULL,
-  `userId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+(1, '1', 'Erlis', 'Kendezi', 'erliskendezi@gmail.com', '$2y$10$byMBQ3MRMQ1Bc8Aq2xSBrOJyLKVl3kZNfzq5Y6QFIxiJxwYa2qbhy'),
+(2, '2', 'Erlis', 'Kendezi', 'erliskendezi@gamil.com', '$2y$10$.PHYYbfRp9hoEOiUbmbkGuUQGvCevd1GN0JZrRmGyk6c4TNmVuo3S');
 
 --
 -- Indexes for dumped tables
@@ -169,14 +145,6 @@ ALTER TABLE `user`
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Indexes for table `userphoneno`
---
-ALTER TABLE `userphoneno`
-  ADD PRIMARY KEY (`phoneNo`,`userId`),
-  ADD UNIQUE KEY `phoneNo` (`phoneNo`),
-  ADD KEY `userId` (`userId`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -184,13 +152,13 @@ ALTER TABLE `userphoneno`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -202,7 +170,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -227,12 +195,6 @@ ALTER TABLE `cartcontains`
 --
 ALTER TABLE `payment`
   ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`payingUserId`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `userphoneno`
---
-ALTER TABLE `userphoneno`
-  ADD CONSTRAINT `userphoneno_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

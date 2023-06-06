@@ -1,4 +1,5 @@
 <?php
+include "../CLIENT/product.model.php";
 
 // if($_SERVER["REQUEST_METHOD"]==="POST")
 // {
@@ -45,6 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $level = $user["level"];
             // echo $level;
             if ($level === "1") {
+                $_SESSION['payment_id'] = createPayment($mySQL, $_SESSION['user_id']);
+                $_SESSION['cart_id'] = createCart($mySQL, $_SESSION['user_id'], $_SESSION['payment_id']);
                 header("Location: ../CLIENT/clientview.php");
             } elseif ($level === "2") {
                 header("Location: ../MANAGER/manager.php");

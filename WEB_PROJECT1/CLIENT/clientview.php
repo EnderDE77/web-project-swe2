@@ -52,8 +52,8 @@
           
 
           <div class="number">
-            <input type="number" name="<?= "q".$product_id?>" value="0" min="0" max="<?= $product['quantity']?>">
             <input type="checkbox" name="<?= "$product_id"?>">
+            <input type="number" name="<?= "q"."$product_id"?>" value="0" min="0" max="<?= $product['quantity']?>">
           </div>
        
           <div class="total-price">$<?=  $product['price'] ?></div>
@@ -63,17 +63,23 @@
     <button type="submit">Submit</button>
      </form>
 </section>
-
-  <aside>
-    <h2>Your Cart</h2>
-    <ul id="cart-items">
-        <?php if(isset($chosenProducts)):?>
-        <?php foreach($chosenProducts as $product):?>
-            <li><?= $productList[$product['productId']]['name']." $".$productList[$product['productId']]['price']." ".$product['quantity'] ?></li>
-        <?php endforeach;?>
-        <?php endif;?>
-    </ul>
-    <p>Total: <span id="cart-total">$<?= $payment['price']?></span></p>
-  </aside>
+    <?php if(isset($chosenProducts)):?>
+        <aside>
+          <h2>Your Cart</h2>
+          <ul id="cart-items">
+              <?php foreach($chosenProducts as $item):
+                    $product = getProduct($connection, $item['productId'])[0];?>
+                  <li>
+                    <?= $product['name']?>
+                    <?= " $"?>
+                    <?= $product['price']?>
+                    <?= " " ?>
+                    <?= $item['quantity']?>
+                  </li>
+              <?php endforeach;?>
+          </ul>
+          <p>Total: <span id="cart-total">$<?= $payment['price']?></span></p>
+        </aside>
+    <?php endif;?>
 </body>
 </html>
