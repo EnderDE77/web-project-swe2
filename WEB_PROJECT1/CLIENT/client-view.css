@@ -1,13 +1,16 @@
-    .products {
-      width: 750px;
-      height: 423px;
-      margin: 80px;
-      background: #444;
-      box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
-      border-radius: 6px;
-      display: flex;
-      flex-direction: column;
-    }
+.products {
+  width: 750px;
+  height: 423px;
+  margin: 80px;
+  background: #444;
+  box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  /* Beautiful gradient background */
+  background-image: linear-gradient(to bottom, #444, #555);
+}
+
 .buttons {
   position: relative;
   padding-top: 30px;
@@ -23,6 +26,10 @@
 .delete-btn {
   width: 18px;
   height: 17px;
+  /* Beautiful trash can icon */
+  background-image: url("trash-can.png");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .like-btn {
@@ -64,6 +71,16 @@
   font-size: 15px;
   color: #43484D;
   font-weight: 400;
+  /* Beautiful text animation */
+  animation-name: text-fade;
+  animation-duration: 1s;
+  animation-delay: 0.2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes text-fade {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 button:focus,
@@ -109,6 +126,12 @@ input:focus {
 
 span {
   cursor: pointer;
+  /* Beautiful hover effect */
+  transition: color 0.3s ease-in-out;
+}
+
+span:hover {
+  color: #ff6600;
 }
 
 .number {
