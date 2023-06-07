@@ -1,13 +1,13 @@
 <html>
     <head>
         <title>GroceryShop</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../HOME/style.css">
     </head>
     <body> 
         <div class="navbar">
 
             <div class="logo">
-                <img id="logo1" src="groceries.png" alt="Logo of gorceryShop">
+                <img id="logo1" src="../IMAGES/groceries.png" alt="Logo of gorceryShop">
                 <h4 id="nameofshop">GroceryMania</h4>
             </div>
 
@@ -15,10 +15,10 @@
             <div class="menu">
                 
                 <ul>
-                    <li id="home-txt"><a href="#">HOME</a></li>
-                    <li><a href="#">ABOUT</a></li>
-                    <li><a href="#">DELIVERY</a></li>
-                    <li><a href="#">CONTACT</a></li>
+                    <li><a href="../HOME/index.php">HOME</a></li>
+                    <li><a href="../ABOUT/NewAbout.php">ABOUT</a></li>
+                    <li><a href="">DELIVERY</a></li>
+                    <li><a href="../CONTACT/Contacts.php">CONTACT</a></li>
                 </ul>
             </div>
 

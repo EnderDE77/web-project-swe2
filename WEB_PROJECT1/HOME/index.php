@@ -23,9 +23,9 @@
             
             <ul>
                 <li id="home-txt"><a href="#">HOME</a></li>
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="#">DELIVERY</a></li>
-                <li><a href="#">CONTACT</a></li>
+                <li><a href="../ABOUT/NewAbout.php">ABOUT</a></li>
+                <li><a href="../DELIVERY/Delivery.php">DELIVERY</a></li>
+                <li><a href="../CONTACT/Contacts.php">CONTACT</a></li>
              </ul>
         </div>
 

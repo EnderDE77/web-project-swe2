@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GrocerySHOP</title>
-    <link rel="stylesheet" href="styleer.css">
+    <link rel="stylesheet" href="NewCssAbout.css">
 
 </head>
 <body>
@@ -13,7 +13,7 @@
         <div class="navbar">
     
             <div class="logo">
-                <img id="logo1" src="groceries.png" alt="Logo of gorceryShop">
+                <img id="logo1" src="../IMAGES/groceries.png" alt="Logo of gorceryShop">
                 <h4 id="nameofshop">GroceryMania</h4>
             </div>
     
@@ -21,10 +21,10 @@
             <div class="menu">
                 
                 <ul>
-                    <li id="home-txt"><a href="#">HOME</a></li>
+                    <li id="home-txt"><a href="../HOME/index.php">HOME</a></li>
                     <li><a href="#">ABOUT</a></li>
-                    <li><a href="#">DELIVERY</a></li>
-                    <li><a href="#">CONTACT</a></li>
+                    <li><a href="../DELIVERY/Delivery.php">DELIVERY</a></li>
+                <li><a href="../CONTACT/Contacts.php">CONTACT</a></li>
                  </ul>
             </div>
     
@@ -47,7 +47,7 @@
                 <br>
                 <br>
                 <br> 
-                <img src="groc1.jpg" style="width: 50em; height: 30em; margin-left: 20em; ">
+                <img src="../IMAGES/groc1.jpg" style="width: 50em; height: 30em; margin-left: 20em; ">
                 <br>
                 <br>
 
@@ -57,8 +57,8 @@
                <h1 class="abu_usc" style="font-size: 1.7em;">About us</h1>
                <p class="abu_usc"> GrocerySHOP is a premier grocery shop located in the heart of Albania, dedicated to providing our customers with the finest quality products and a delightful shopping experience. Established in 2002, we have been serving the local community and visitors with a wide range of fresh and authentic Albanian food products.</p>
                <div class="image_container">
-               <img src="/Users/user/Desktop/groc3.jpg" style="width: 17em; height: 20em; margin-top: 3em; margin-right: 10em; "> 
-               <img src="groc2.jpg" style="width: 35em; height: 20em; margin-top: 3em; margin-right: 5em; margin-left: 3em;">  
+               <img src="../IMAGES/groc3.jpg" style="width: 17em; height: 20em; margin-top: 3em; margin-right: 10em; "> 
+               <img src="../IMAGES/groc2.jpg" style="width: 35em; height: 20em; margin-top: 3em; margin-right: 5em; margin-left: 3em;">  
                
                </div>
              </div>
@@ -81,7 +81,7 @@
                     <p>We love staying connected with our valued customers. Follow us on social media platforms, including Facebook, Instagram, and Twitter, to stay updated on the latest offers, promotions, and new product arrivals. Additionally, you can subscribe to our newsletter to receive exclusive discounts and special offers directly in your inbox.</p>
                 </div>
                 </div>
-                <img class="image" src="icons.png" width="20%" height="20%">
+                <img class="image" src="../IMAGES/icons.png" width="20%" height="20%">
               </div>
             </div>
         </div>
