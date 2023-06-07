@@ -341,3 +341,22 @@ color:rgb(137, 188, 202);
 .ShowTable{
     border: red 20px;
 }
+.dark-mode {
+  background-color: #222;
+  color: #fff;
+}
+body {
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.dark-mode {
+  --text-color: #fff;
+  --background-color: #222;
+}
+
+/* Light mode */
+.light-mode {
+  --text-color: #000;
+  --background-color: #fff;
+}

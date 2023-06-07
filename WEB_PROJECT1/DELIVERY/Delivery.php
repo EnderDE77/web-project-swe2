@@ -1,13 +1,21 @@
 <html>
     <head>
         <title>GroceryShop</title>
+<<<<<<< HEAD:WEB_PROJECT1/DELIVERY/Delivery.php
         <link rel="stylesheet" href="../HOME/style.css">
+=======
+        <link rel="stylesheet" href="../WEB_PROJECT1/HOME/style.css">
+>>>>>>> d4f794c729f1eff846165d37bcb0677987f14bc7:WEB_PROJECT1/Delivery.html
     </head>
     <body> 
         <div class="navbar">
 
             <div class="logo">
+<<<<<<< HEAD:WEB_PROJECT1/DELIVERY/Delivery.php
                 <img id="logo1" src="../IMAGES/groceries.png" alt="Logo of gorceryShop">
+=======
+                <img id="logo1" src="../WEB_PROJECT1/IMAGES/groceries.png" alt="Logo of gorceryShop">
+>>>>>>> d4f794c729f1eff846165d37bcb0677987f14bc7:WEB_PROJECT1/Delivery.html
                 <h4 id="nameofshop">GroceryMania</h4>
             </div>
 
