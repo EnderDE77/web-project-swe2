@@ -29,7 +29,24 @@
 
 </head>
  <body>
-    <div class="navbar">
+      <div class="navbar">
+
+        <div class="logo">
+            <img id="logo1" src="../IMAGES/groceries.png" alt="Logo of gorceryShop">
+            <h4 id="nameofshop">GroceryMania</h4>
+        </div>
+
+
+        <div class="menu">
+            
+            <ul>
+                <li id="home-txt"><a href="#">HOME</a></li>
+                <li><a href="../ABOUT/NewAbout.php">ABOUT</a></li>
+                <li><a href="../DELIVERY/Delivery.php">DELIVERY</a></li>
+                <li><a href="../CONTACT/Contacts.php">CONTACT</a></li>
+             </ul>
+        </div>
+          
      <?php require_once "./product.controller.php";?> 
 
 <section class="products" id="products">
