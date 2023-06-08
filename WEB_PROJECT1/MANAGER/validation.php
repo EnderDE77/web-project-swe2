@@ -2,9 +2,9 @@
 // Check if the request is a POST request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve the form data
-    $name = $_POST['name'];
-    $quantity = $_POST['quantity'];
-    $price = $_POST['price'];
+    $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+    $quantity = filter_var($_POST['quantity'], FILTER_SANITIZE_NUMBER_INT);
+    $price = filter_var($_POST['price'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
     $image = $_POST['image'];
 
     // Perform validation
