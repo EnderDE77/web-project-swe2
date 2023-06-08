@@ -29,7 +29,8 @@
 
 </head>
  <body>
-  
+  <div class="main">
+    <div class="navbar">
      <?php require_once "./product.controller.php";?> 
 
 <section class="products" id="products">
