@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="client-view.css">
-    <link rel="stylesheet" href="/Home/style.css">
+    <link rel="stylesheet" href="../HOME/style.css">
 
     <style>
    aside {
@@ -46,7 +46,7 @@
                 <li><a href="../CONTACT/Contacts.php">CONTACT</a></li>
              </ul>
         </div>
-          
+  </div> 
      <?php require_once "./product.controller.php";?> 
 
 <section class="products" id="products">
