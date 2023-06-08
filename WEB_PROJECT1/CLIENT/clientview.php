@@ -9,115 +9,19 @@
     <link rel="stylesheet" href="/Home/style.css">
 
     <style>
-    aside {
-        width: 250px;
-        padding: 20px;
-        background-color: #f5f5f5;
+   aside {
+      width: 250px;
+      padding: 20px;
+      background-color: #f5f5f5;
     }
-
+    
     #cart-items {
-        list-style-type: none;
-        padding: 0;
+      list-style-type: none;
+      padding: 0;
     }
-
+    
     #cart-total {
-        font-weight: bold;
-    }
-
-    .products {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .products .item {
-        width: 30%;
-        margin-bottom: 30px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 20px;
-    }
-
-    .products .item .buttons {
-        display: flex;
-        justify-content: flex-end;
-    }
-
-    .products .item .buttons .delete-btn,
-    .products .item .buttons .like-btn {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        background-color: #ccc;
-        margin-left: 5px;
-    }
-
-    .products .item .image img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    .products .item .description {
-        margin-top: 10px;
-        font-weight: bold;
-    }
-
-    .products .item .number {
-        margin-top: 10px;
-    }
-
-    .products .item .number input[type="checkbox"] {
-        margin-right: 5px;
-    }
-
-    .products .item .total-price {
-        margin-top: 10px;
-        font-weight: bold;
-        color: green;
-    }
-
-    .cart {
-        display: flex;
-    }
-
-    .cart .cart-items {
-        flex: 2;
-        padding-right: 20px;
-        border-right: 1px solid #ccc;
-    }
-
-    .cart .cart-total {
-        flex: 1;
-        padding-left: 20px;
-    }
-
-    .cart .cart-total p {
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
-
-    .cart .cart-total #cart-total {
-        color: green;
-    }
-
-    .heading {
-        text-align: center;
-    }
-
-    .heading span {
-        color: green;
-    }
-
-    button[type="submit"] {
-        display: block;
-        margin: 20px auto;
-        padding: 10px 20px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
+      font-weight: bold;
     }
 
   </style>
