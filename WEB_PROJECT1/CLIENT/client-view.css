@@ -1,3 +1,85 @@
+ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+ul li{
+    list-style:none;
+    margin-right: 60px; /*This is a defect*/
+        
+    margin-left: 50px;
+}
+
+ul li a{
+    text-decoration: none;
+    color:rgb(207, 190, 183);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    transition: 0.4s ease-in-out;
+}
+
+ul li a:hover{
+color:rgb(137, 188, 202);
+}
+
+.reg{
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    margin-right: 20px; /* Updated margin */
+}
+
+#find{
+    width: 30px;
+    height: 30px;
+    margin-right: 20px; /* Updated margin */
+    border-radius: 100px;
+}
+
+#searchBar {
+    width: 150px;
+    height: 30px;
+    display: inline-block;
+    margin-right: 20px; /* Updated margin */
+    padding: 5px; /* Added padding */
+    border: 1px solid #ccc; /* Added border */
+    border-radius: 4px; /* Added border radius */
+}
+
+#register {
+    margin-right: 20px;
+    margin-left: 20px;
+    width: 100px;
+    height: 35px;
+    border: 1px solid #ccc;
+    transition: 0.6s ease-in-out;
+}
+
+#login {
+    margin-left: 8px;
+    width: 100px;
+    height: 35px;
+    border: 1px solid #ccc;
+    transition: 0.6s ease-in-out;
+}
+
+#register:hover{
+    background-color: rgb(216, 195, 169);
+    cursor:pointer;
+}
+#login:hover{
+    background-color: rgb(216, 195, 169);
+    cursor:pointer;
+}
+
+#find:hover{
+    background-color: rgb(227, 212, 194);
+    cursor:pointer;
+}
+
 .products {
   width: 750px;
   height: 423px;
