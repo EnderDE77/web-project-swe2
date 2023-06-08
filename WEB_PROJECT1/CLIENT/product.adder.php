@@ -1,3 +1,4 @@
+<?php
 require_once "./product.model.php";
 session_start();
 $prod = [];
