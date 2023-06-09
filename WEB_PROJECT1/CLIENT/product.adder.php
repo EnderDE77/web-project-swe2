@@ -12,10 +12,12 @@ foreach ($_POST as $key => $value) {
         $find = TRUE;
     } else {
         if ($value == '') {}
-        $value = (int)$value;
-        if ($value == 0){} 
-        elseif ($find == TRUE) {
-            array_push($quants, $value);
+        else{
+            $value = (int)$value;
+            if ($value == 0){} 
+            elseif ($find == TRUE) {
+                array_push($quants, $value);
+            }
         }
         $find = FALSE;
     }
