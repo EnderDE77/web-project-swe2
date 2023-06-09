@@ -1,6 +1,6 @@
 <?php
 
-include "../CLIENT/product.model.php";
+require_once "../CLIENT/product.model.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $mySQL = require __DIR__ . "/database1.php";
