@@ -11,14 +11,10 @@ foreach ($_POST as $key => $value) {
         array_push($keys, $key);
         $find = TRUE;
     } else {
-        if ($value == '') {
-            continue; // Skip empty values
-        }
-
+        if ($value == '') {}
         $value = (int)$value;
-        if ($value == 0) {
-            continue; // Skip zero values
-        } elseif ($find == TRUE) {
+        if ($value == 0){} 
+        elseif ($find == TRUE) {
             array_push($quants, $value);
         }
         $find = FALSE;
