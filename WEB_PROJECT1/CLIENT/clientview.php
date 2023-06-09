@@ -40,7 +40,7 @@
         <div class="menu">
             
             <ul>
-                <li id="home-txt"><a href="#">HOME</a></li>
+                <li id="home-txt"><a href="../HOME/index.php">HOME</a></li>
                 <li><a href="../ABOUT/NewAbout.php">ABOUT</a></li>
                 <li><a href="../DELIVERY/Delivery.php">DELIVERY</a></li>
                 <li><a href="../CONTACT/Contacts.php">CONTACT</a></li>
@@ -55,13 +55,9 @@
      <?php foreach($productList as $product):
         $product_id = strval($product['id']);?>
     <div class="item">
-        <div class="buttons">
-            <span class="delete-btn"></span>
-            <span class="like-btn"></span>
-        </div>
 
         <div class="image">
-            <img src="<?= $product['imgPath']?>" alt=""/>
+            <img src="../MANAGER/<?= $product['imgPath']?>" alt=""/>
         </div>
 
         <div class="description">
@@ -83,22 +79,22 @@
      </form>
 </section>
     <?php if(isset($chosenProducts)):?>
-        <aside>
+        <div id="cartcontains">
           <h2>Your Cart</h2>
           <ul id="cart-items">
               <?php foreach($chosenProducts as $item):
                     $product = getProduct($connection, $item['productId'])[0];?>
                   <li>
                     <?= $product['name']?>
-                    <?= " $"?>
+                    <?= " Price: $"?>
                     <?= $product['price']?>
-                    <?= " " ?>
+                    <?= " Quantity: " ?>
                     <?= $item['quantity']?>
                   </li>
               <?php endforeach;?>
           </ul>
           <p>Total: <span id="cart-total">$<?= $payment['price']?></span></p>
-        </aside>
+        </div>
     <?php endif;?>
 </body>
 </html>
