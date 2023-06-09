@@ -2,7 +2,7 @@
 
 $connection = include './connection.php';
 
-$mySQL = require __DIR__ . "/../LOGIN/database1.php"; //"";
+$mySQL = require __DIR__ . "/../LOGIN/database1.php";
 
 
 function searchProducts($connection, $search) {

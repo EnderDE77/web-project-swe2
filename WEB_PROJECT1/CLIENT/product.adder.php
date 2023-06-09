@@ -12,17 +12,7 @@ foreach ($_POST as $key => $value) {
     if (is_numeric($key)) {
         array_push($keys, $key);
         $find = TRUE;
-     } //else {
-    //     if ($value == '') {}
-    //     else{
-    //         $value = (int)$value;
-    //         if ($value == 0){} 
-    //         elseif ($find == TRUE) {
-    //             array_push($quants, $value);
-    //         }
-    //     }
-    //     $find = FALSE;
-    //}
+     }
     else{
         if($find == FALSE) continue;
         if($value == ''){}

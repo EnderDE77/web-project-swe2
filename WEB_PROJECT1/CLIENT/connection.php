@@ -1,6 +1,6 @@
 <?php
 
-$dbName = "dataBase";
+$dbName = "database";
 $user = "root";
 $password = "";
 
