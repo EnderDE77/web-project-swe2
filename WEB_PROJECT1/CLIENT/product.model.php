@@ -183,3 +183,21 @@ function modifyPaymentPrice($connection, $payment, $product, $quantity){
     $statement->closeCursor();
     
 }
+
+function getQuantity($connection, $product){
+    return getProduct($connection, $product)[0]['quantity'];
+}
+
+function getNoChosenProducts($connection, $cart){
+    $sql = "SELECT SUM(`quantity`) FROM `cartcontains` WHERE `cartID` = $cart";
+
+    $statement = $connection->prepare($sql);
+    try {
+        $statement->execute();
+    } catch (PDOException $error) {
+        throw $error;
+    }
+    $result = $statement -> fetchAll();
+    $statement->closeCursor();
+    return $result;
+}

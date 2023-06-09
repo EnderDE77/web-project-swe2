@@ -29,35 +29,41 @@
 
 </head>
  <body>
+     <?php require_once "./product.controller.php";?>
       <div class="navbar">
 
         <div class="logo">
             <img id="logo1" src="../IMAGES/groceries.png" alt="Logo of gorceryShop">
             <h4 id="nameofshop">GroceryMania</h4>
-        </div>
+        </div>  
+        
+        
+        <div class="searchBar">
 
+          <form method="GET" action="product.searcher.php">
+          <input type="text" name="searchBar" id="searchBar" placeholder="SearchBar">
+          <button type="submit">Search</button>
+        </div>
 
         <div class="menu">
             
             <ul>
-                <li id="home-txt"><a href="../HOME/index.php">HOME</a></li>
-                <li><a href="../ABOUT/NewAbout.php">ABOUT</a></li>
-                <li><a href="../DELIVERY/Delivery.php">DELIVERY</a></li>
-                <li><a href="../CONTACT/Contacts.php">CONTACT</a></li>
+                <li><a href="./logout.php">LOG OUT</a></li>
+                <li><a href="./cart.php">CART (<?= $chosenProductsLen?>)</a></li>
              </ul>
         </div>
   </div> 
-     <?php require_once "./product.controller.php";?> 
+     </form>
 
 <section class="products" id="products">
-    <h1 class="heading">Our <span>products</span></h1>
+    <h1 class="heading"><span>Our products</span></h1>
     <form method="POST" action="product.adder.php">
      <?php foreach($productList as $product):
         $product_id = strval($product['id']);?>
     <div class="item">
 
         <div class="image">
-            <img src="../MANAGER/<?= $product['imgPath']?>" alt=""/>
+            <img src="../MANAGER/<?= $product['imgPath']?>" alt="Image of <?= $product['name']?>"/>
         </div>
 
         <div class="description">
@@ -78,7 +84,7 @@
     <button type="submit">Submit</button>
      </form>
 </section>
-    <?php if(isset($chosenProducts)):?>
+    <?php if($showCart == TRUE):?>
         <div id="cartcontains">
           <h2>Your Cart</h2>
           <ul id="cart-items">
@@ -94,7 +100,10 @@
               <?php endforeach;?>
           </ul>
           <p>Total: <span id="cart-total">$<?= $payment['price']?></span></p>
-        </div>
+          <form method="get" action="./purchase.php">
+              <button type="submit">Purchase</div>
+          </form>
+          </div>
     <?php endif;?>
 </body>
 </html>
