@@ -45,7 +45,6 @@
                     <input id="Password1" name="Password" type="password" placeholder="Password">
                 </div>
                 <input type="submit" value="Login" class="btn" style="margin-top: 30px;margin-bottom:5px">
-                <!-- <p class="social-text">Or Sign in with social platform</p> -->
                 <div class="social-media">
                     <a href="#" class="social-icon">
                         <i class="fab fa-facebook"></i>
@@ -69,23 +68,21 @@
             <!-- javascript for the signinform -->
 
  <script>
+
     const signInForm = document.getElementById("signin");
     const EmailInput = signInForm.querySelector("#Email1");
     const PassInput = signInForm.querySelector("#Password1");
 
     signInForm.addEventListener("submit", (e) => {
         if (!EmailInput.value) {
-
             e.preventDefault();
-          
         }
          if(!PassInput.value)
         {
             e.preventDefault();
-          
-           
         }
     });
+
 </script> 
            
           
@@ -152,13 +149,14 @@
                         <i class="fab fa-linkedin-in"></i>
                     </a>
                 </div>
-                <p class="account-text">Already have an account? <a href="#" id="sign-in-btn2">Sign in</a></p>
+                <p class="account-text">Already have an account? <a href="SignUp.php" id="sign-in-btn2">Sign in</a></p>
             </form>
 
 
             <!-- javascript for sign up validation -->
 
             <script>
+                
     const signUpForm = document.getElementById("signup");
     const levelInput = signUpForm.querySelector("#Level");
     const nameInput = signUpForm.querySelector("#Name");
@@ -203,16 +201,16 @@
         <div class="panels-container">
             <div class="panel left-panel">
                 <div class="content">
-                    <h3>Member of Brand?</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque accusantium dolor, eos incidunt minima iure?</p>
+                    <h3>Member of groceryMania?</h3>
+                    <p>You can Sign  in by clicking in the button!</p>
                     <button class="btn" id="sign-in-btn">Sign in</button>
                 </div>
                 <!-- <img src="signin.svg" alt="" class="image"> -->
             </div>
             <div class="panel right-panel">
                 <div class="content">
-                    <h3>New to Brand?</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque accusantium dolor, eos incidunt minima iure?</p>
+                    <h3>New to groceryMania?</h3>
+                    <p>Grocery Mania is a big and succesful grocery shop, with the greatest quality and best prices. You can sign up by registering here!</p>
                     <button  class="btn" id="sign-up-btn" style="margin-top: 50px;">Sign up</button>
                 </div>
                 <!-- <img src="signup.svg" alt="" class="image"> -->
@@ -250,6 +248,7 @@ sign_up_btn2.addEventListener("click", (e) => {
 sign_in_btn2.addEventListener("click", (e) => {
        e.preventDefault(); 
     container.classList.remove("sign-up-mode2");
+    
 });
 
 

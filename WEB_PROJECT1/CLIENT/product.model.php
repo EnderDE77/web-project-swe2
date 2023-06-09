@@ -1,6 +1,7 @@
 <?php
 
 $connection = include './connection.php';
+
 $mySQL = require __DIR__ . "/../LOGIN/database1.php"; //"";
 
 
