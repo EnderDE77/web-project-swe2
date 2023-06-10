@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +12,7 @@
 
 </head>
 <body>
-
+<?php require_once "../PHP/user.php";?>
 <div class="main">
     <div class="navbar">
 
@@ -22,26 +25,31 @@
         <div class="menu">
             
             <ul>
-                <li id="home-txt"><a href="#">HOME</a></li>
+                <li><a href="../HOME/index.php">HOME</a></li>
                 <li><a href="../ABOUT/NewAbout.php">ABOUT</a></li>
                 <li><a href="../DELIVERY/Delivery.php">DELIVERY</a></li>
                 <li><a href="../CONTACT/Contacts.php">CONTACT</a></li>
+                <?php if(isset($_SESSION['user_id'])):?>
+                    <?php if()?>
+                <li><a href="../CONTACT/Contacts.php">CLIENT</a></li>
+                <li><a href="../CONTACT/Contacts.php">MANAGER</a></li>
+                <?php endif;?>
              </ul>
         </div>
 
         
             
 
-     
+     <?php if(!isset($_SESSION['user_id'])):?>
         <div class="reg">
-            <ion-icon id="find" name="search-circle-outline"></ion-icon>
-            <!-- <a href="#"><ion-icon id="find" name="search"></ion-icon></a> -->
+            <!-- <ion-icon id="find" name="search-circle-outline"></ion-icon>
+            <a href="#"><ion-icon id="find" name="search"></ion-icon></a>
             <input type="searchBar" name="searchBar" id="searchBar" placeholder="SearchBar">
-            <!-- <button type="submit" class="searchButton"><i class="fas fa-search"></i></button> -->
+            <button type="submit" class="searchButton"><i class="fas fa-search"></i></button> -->
         <button onclick="window.location.href='../LOGIN/SignUp.php'"  type="click" id="register">Register</button>
         <button onclick="window.location.href='../LOGIN/SignUp.php'"  type="click" id="login">Log in</button>
         </div>
-
+    <?php endif;?>
     </div>
     <div class="container">
 
