@@ -4,6 +4,7 @@ session_start();
 
 $user_id = '';
 $user = [];
+$user_lvl = '';
 
 if(isset($_SESSION['user_id'])){
     $user_id = $_SESSION['user_id'];

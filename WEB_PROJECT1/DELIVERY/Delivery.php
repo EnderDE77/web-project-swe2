@@ -4,37 +4,47 @@
         <link rel="stylesheet" href="../HOME/style.css">
     </head>
     <body> 
-        <div class="navbar">
+    <?php require_once "../PHP/user.php";?>
+    <div class="navbar">
 
-            <div class="logo">
-                <img id="logo1" src="../IMAGES/groceries.png" alt="Logo of gorceryShop">
-                <h4 id="nameofshop">GroceryMania</h4>
-            </div>
+        <div class="logo">
+            <img id="logo1" src="../IMAGES/groceries.png" alt="Logo of gorceryShop">
+            <h4 id="nameofshop">GroceryMania</h4>
+        </div>
 
 
-            <div class="menu">
-                
-                <ul>
-                    <li><a href="../HOME/index.php">HOME</a></li>
-                    <li><a href="../ABOUT/NewAbout.php">ABOUT</a></li>
-                    <li><a href="">DELIVERY</a></li>
-                    <li><a href="../CONTACT/Contacts.php">CONTACT</a></li>
-                </ul>
-            </div>
-
+        <div class="menu">
             
-                
+            <ul>
+                <li><a href="../HOME/index.php">HOME</a></li>
+                <li><a href="../ABOUT/NewAbout.php">ABOUT</a></li>
+                <li><a href="../DELIVERY/Delivery.php">DELIVERY</a></li>
+                <li><a href="../CONTACT/Contacts.php">CONTACT</a></li>
+                <?php if(isset($_SESSION['user_id'])):?>
+                    <?php if($user_lvl == "1"):?>
+                <li><a href="../CLIENT/clientview.php">CLIENT</a></li>
+                    <?php endif;?>
+                    <?php if($user_lvl == "2"):?>
+                <li><a href="../MANAGER/manager.php">MANAGER</a></li>
+                    <?php endif;?>
+                <?php endif;?>
+             </ul>
+        </div>
 
         
-            <div class="reg">
-                <ion-icon id="find" name="search-circle-outline"></ion-icon>
-                <!-- <a href="#"><ion-icon id="find" name="search"></ion-icon></a> -->
-                <input type="searchBar" name="searchBar" id="searchBar" placeholder="SearchBar">
-                <!-- <button type="submit" class="searchButton"><i class="fas fa-search"></i></button> -->
-            <button onclick="openRegistration()" type="click" id="register">Register</button>
-            <button onclick="openLogIn()" type="click" id="login">Log in</button>
-            </div>
+            
 
+     <?php if($user_id == ""):?>
+        <div class="reg">
+            <!-- <ion-icon id="find" name="search-circle-outline"></ion-icon>
+            <a href="#"><ion-icon id="find" name="search"></ion-icon></a>
+            <input type="searchBar" name="searchBar" id="searchBar" placeholder="SearchBar">
+            <button type="submit" class="searchButton"><i class="fas fa-search"></i></button> -->
+        <button onclick="window.location.href='../LOGIN/SignUp.php'"  type="click" id="register">Register</button>
+        <button onclick="window.location.href='../LOGIN/SignUp.php'"  type="click" id="login">Log in</button>
+        </div>
+    <?php endif;?>
+    </div>
         </div>
 
         <div class="Cart">

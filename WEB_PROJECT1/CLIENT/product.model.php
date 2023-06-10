@@ -201,3 +201,13 @@ function getNoChosenProducts($connection, $cart){
     $statement->closeCursor();
     return $result;
 }
+
+function insertContact($connection, $name, $email, $message){
+
+    $sql = "INSERT INTO `contact` VALUES (?, ?, ?, false);";
+
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param("sss", $name, $email, $message);
+    $stmt->execute();
+
+}

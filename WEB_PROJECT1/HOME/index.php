@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +9,8 @@ session_start();
 
 </head>
 <body>
-<?php require_once "../PHP/user.php";?>
 <div class="main">
+    <?php require_once "../PHP/user.php";?>
     <div class="navbar">
 
         <div class="logo">
@@ -30,9 +27,12 @@ session_start();
                 <li><a href="../DELIVERY/Delivery.php">DELIVERY</a></li>
                 <li><a href="../CONTACT/Contacts.php">CONTACT</a></li>
                 <?php if(isset($_SESSION['user_id'])):?>
-                    <?php if()?>
-                <li><a href="../CONTACT/Contacts.php">CLIENT</a></li>
-                <li><a href="../CONTACT/Contacts.php">MANAGER</a></li>
+                    <?php if($user_lvl == "1"):?>
+                <li><a href="../CLIENT/clientview.php">CLIENT</a></li>
+                    <?php endif;?>
+                    <?php if($user_lvl == "2"):?>
+                <li><a href="../MANAGER/manager.php">MANAGER</a></li>
+                    <?php endif;?>
                 <?php endif;?>
              </ul>
         </div>
@@ -40,7 +40,7 @@ session_start();
         
             
 
-     <?php if(!isset($_SESSION['user_id'])):?>
+     <?php if($user_id == ""):?>
         <div class="reg">
             <!-- <ion-icon id="find" name="search-circle-outline"></ion-icon>
             <a href="#"><ion-icon id="find" name="search"></ion-icon></a>
