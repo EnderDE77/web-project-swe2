@@ -204,7 +204,7 @@ function getNoChosenProducts($connection, $cart){
 
 function insertContact($connection, $name, $email, $message){
 
-    $sql = "INSERT INTO `contact` VALUES (?, ?, ?, false);";
+    $sql = "INSERT INTO `contact` (name, email, message, isRead) VALUES (?, ?, ?, false);";
 
     $stmt = $connection->prepare($sql);
     $stmt->bind_param("sss", $name, $email, $message);

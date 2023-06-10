@@ -232,6 +232,7 @@ color:rgb(137, 188, 202);
                     <?php if($user_lvl == "2"):?>
                 <li><a href="../MANAGER/manager.php">MANAGER</a></li>
                     <?php endif;?>
+                <li><a href="../CLIENT/logout.php">LOG OUT</a></li>
                 <?php endif;?>
              </ul>
         </div>
