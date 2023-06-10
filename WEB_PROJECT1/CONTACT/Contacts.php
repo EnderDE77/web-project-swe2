@@ -225,7 +225,7 @@ color:rgb(137, 188, 202);
                 <li><a href="../ABOUT/NewAbout.php">ABOUT</a></li>
                 <li><a href="../DELIVERY/Delivery.php">DELIVERY</a></li>
                 <li><a href="../CONTACT/Contacts.php">CONTACT</a></li>
-                <?php if(isset($_SESSION['user_id'])):?>
+                <?php if(isset($user[0])):?>
                     <?php if($user_lvl == "1"):?>
                 <li><a href="../CLIENT/clientview.php">CLIENT</a></li>
                     <?php endif;?>
@@ -256,6 +256,8 @@ color:rgb(137, 188, 202);
   <div class="container">
     <h1>Contact Form</h1>
     <form action="submit_form.php" method="POST" onsubmit="return validateForm()">
+
+      <?php if(!isset($user[0])):?>
       <label for="name">Name:</label>
       <input type="text" id="name" name="name">
       <div id="name-error" class="error"></div>
@@ -263,6 +265,17 @@ color:rgb(137, 188, 202);
       <label for="email">Email:</label>
       <input type="email" id="email" name="email">
       <div id="email-error" class="error"></div>
+      <?php endif;?>
+
+      <?php if(isset($user[0])):?>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" value=<?= $user['name'].' '.$user['surname']?> readonly>
+      <div id="name-error" class="error"></div>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" value=<?= $user['email']?> readonly>
+      <div id="email-error" class="error"></div>
+      <?php endif;?>
 
       <label for="message">Message:</label>
       <textarea id="message" name="message"></textarea>

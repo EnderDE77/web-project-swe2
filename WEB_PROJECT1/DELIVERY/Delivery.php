@@ -20,7 +20,7 @@
                 <li><a href="../ABOUT/NewAbout.php">ABOUT</a></li>
                 <li><a href="../DELIVERY/Delivery.php">DELIVERY</a></li>
                 <li><a href="../CONTACT/Contacts.php">CONTACT</a></li>
-                <?php if(isset($_SESSION['user_id'])):?>
+                <?php if(isset($user[0])):?>
                     <?php if($user_lvl == "1"):?>
                 <li><a href="../CLIENT/clientview.php">CLIENT</a></li>
                     <?php endif;?>
