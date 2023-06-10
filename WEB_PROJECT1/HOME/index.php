@@ -1,3 +1,4 @@
+<?php require_once "../PHP/user.php";?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,6 @@
 </head>
 <body>
 <div class="main">
-    <?php require_once "../PHP/user.php";?>
     <div class="navbar">
 
         <div class="logo">
@@ -41,16 +41,16 @@
         
             
 
-     <?php if($user_id == ""):?>
         <div class="reg">
+     <?php if($user_id == ""):?>
             <!-- <ion-icon id="find" name="search-circle-outline"></ion-icon>
             <a href="#"><ion-icon id="find" name="search"></ion-icon></a>
             <input type="searchBar" name="searchBar" id="searchBar" placeholder="SearchBar">
             <button type="submit" class="searchButton"><i class="fas fa-search"></i></button> -->
         <button onclick="window.location.href='../LOGIN/SignUp.php'"  type="click" id="register">Register</button>
         <button onclick="window.location.href='../LOGIN/SignUp.php'"  type="click" id="login">Log in</button>
-        </div>
     <?php endif;?>
+        </div>
     </div>
     <div class="container">
 

@@ -1,3 +1,4 @@
+<?php require_once "../PHP/user.php";?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,6 @@
 </head>
 <body>
     <div class="main">
-    <?php require_once "../PHP/user.php";?>
     <div class="navbar">
 
         <div class="logo">

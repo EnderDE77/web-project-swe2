@@ -1,8 +1,8 @@
 <?php
 
-$connection = include './connection.php';
+$connection = include __DIR__ . "/connection.php";
 
-$mySQL = require __DIR__ . "/../LOGIN/database1.php";
+$mySQL = include __DIR__ . "/../LOGIN/database1.php";
 
 
 function searchProducts($connection, $search) {

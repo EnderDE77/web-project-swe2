@@ -1,10 +1,10 @@
+<?php require_once "../PHP/user.php";?>
 <html>
     <head>
         <title>GroceryShop</title>
         <link rel="stylesheet" href="../HOME/style.css">
     </head>
     <body> 
-    <?php require_once "../PHP/user.php";?>
     <div class="navbar">
 
         <div class="logo">

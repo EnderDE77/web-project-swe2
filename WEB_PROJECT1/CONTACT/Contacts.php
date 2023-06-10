@@ -1,3 +1,4 @@
+<?php require_once "../PHP/user.php";?>
 <!DOCTYPE html>
 <html>
 <head>
