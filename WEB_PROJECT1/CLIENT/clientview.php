@@ -48,8 +48,9 @@
         <div class="menu">
             
             <ul>
-                <li><a href="./logout.php">LOG OUT</a></li>
+                <li><a href="../HOME/index.php">HOME</a></li>
                 <li><a href="./cart.php">CART (<?= $chosenProductsLen?>)</a></li>
+                <li><a href="./logout.php">LOG OUT</a></li>
              </ul>
         </div>
   </div> 
