@@ -1,8 +1,8 @@
 <?php
 
-$connection = include './connection.php';
+$connection = include __DIR__ . "/connection.php";
 
-$mySQL = require __DIR__ . "/../LOGIN/database1.php";
+$mySQL = include __DIR__ . "/../LOGIN/database1.php";
 
 
 function searchProducts($connection, $search) {
@@ -200,4 +200,14 @@ function getNoChosenProducts($connection, $cart){
     $result = $statement -> fetchAll();
     $statement->closeCursor();
     return $result;
+}
+
+function insertContact($connection, $name, $email, $message){
+
+    $sql = "INSERT INTO `contact` (name, email, message, isRead) VALUES (?, ?, ?, false);";
+
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param("sss", $name, $email, $message);
+    $stmt->execute();
+
 }

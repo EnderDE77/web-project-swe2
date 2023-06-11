@@ -1,3 +1,4 @@
+<?php require_once "../PHP/user.php";?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,6 @@
 
 </head>
 <body>
-
 <div class="main">
     <div class="navbar">
 
@@ -22,26 +22,35 @@
         <div class="menu">
             
             <ul>
-                <li id="home-txt"><a href="#">HOME</a></li>
+                <li><a href="../HOME/index.php">HOME</a></li>
                 <li><a href="../ABOUT/NewAbout.php">ABOUT</a></li>
                 <li><a href="../DELIVERY/Delivery.php">DELIVERY</a></li>
                 <li><a href="../CONTACT/Contacts.php">CONTACT</a></li>
+                <?php if(isset($user[0])):?>
+                    <?php if($user_lvl == "1"):?>
+                <li><a href="../CLIENT/clientview.php">CLIENT</a></li>
+                    <?php endif;?>
+                    <?php if($user_lvl == "2"):?>
+                <li><a href="../MANAGER/manager.php">MANAGER</a></li>
+                    <?php endif;?>
+                <li><a href="../CLIENT/logout.php">LOG OUT</a></li>
+                <?php endif;?>
              </ul>
         </div>
 
         
             
 
-     
         <div class="reg">
-            <ion-icon id="find" name="search-circle-outline"></ion-icon>
-            <!-- <a href="#"><ion-icon id="find" name="search"></ion-icon></a> -->
+     <?php if($user_id == ""):?>
+            <!-- <ion-icon id="find" name="search-circle-outline"></ion-icon>
+            <a href="#"><ion-icon id="find" name="search"></ion-icon></a>
             <input type="searchBar" name="searchBar" id="searchBar" placeholder="SearchBar">
-            <!-- <button type="submit" class="searchButton"><i class="fas fa-search"></i></button> -->
+            <button type="submit" class="searchButton"><i class="fas fa-search"></i></button> -->
         <button onclick="window.location.href='../LOGIN/SignUp.php'"  type="click" id="register">Register</button>
         <button onclick="window.location.href='../LOGIN/SignUp.php'"  type="click" id="login">Log in</button>
+    <?php endif;?>
         </div>
-
     </div>
     <div class="container">
 

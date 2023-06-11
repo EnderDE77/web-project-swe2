@@ -1,3 +1,4 @@
+<?php require_once "../PHP/user.php";?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -209,35 +210,56 @@ color:rgb(137, 188, 202);
 </head>
 <body>
 <div class="main">
-        <div class="menu-container">
-            <div class="logo">
-                <img id="logo1" src="../IMAGES/groceries.png" alt="Logo of GroceryShop">
-                <h4 id="nameofshop">GroceryMania</h4>
-            </div>
-            <div class="menu">
-                <ul>
-                    <li id="home-txt"><a href="../HOME/index.php">HOME</a></li>
-                    <li><a href="../ABOUT/NewAbout.php">ABOUT</a></li>
-                    <li><a href="../DELIVERY/Delivery.php">DELIVERY</a></li>
-                <li><a href="../CONTACT/Contacts.php">CONTACT</a></li>
-                </ul>
-            </div>
-            <div class="reg">
-                <ion-icon id="find" name="search-circle-outline"></ion-icon>
-                <!-- <a href="#"><ion-icon id="find" name="search"></ion-icon></a> -->
-                <input type="searchBar" name="searchBar" id="searchBar" placeholder="SearchBar">
-                <!-- <button type="submit" class="searchButton"><i class="fas fa-search"></i></button> -->
-            <button type="click" id="register">Register</button>
-            <button type="click" id="login">Log in</button>
-            </div>
-    
+    <?php require_once "../PHP/user.php";?>
+    <div class="menu-container">
+
+        <div class="logo">
+            <img id="logo1" src="../IMAGES/groceries.png" alt="Logo of gorceryShop">
+            <h4 id="nameofshop">GroceryMania</h4>
         </div>
+
+
+        <div class="menu">
+            
+            <ul>
+                <li><a href="../HOME/index.php">HOME</a></li>
+                <li><a href="../ABOUT/NewAbout.php">ABOUT</a></li>
+                <li><a href="../DELIVERY/Delivery.php">DELIVERY</a></li>
+                <li><a href="../CONTACT/Contacts.php">CONTACT</a></li>
+                <?php if(isset($user[0])):?>
+                    <?php if($user_lvl == "1"):?>
+                <li><a href="../CLIENT/clientview.php">CLIENT</a></li>
+                    <?php endif;?>
+                    <?php if($user_lvl == "2"):?>
+                <li><a href="../MANAGER/manager.php">MANAGER</a></li>
+                    <?php endif;?>
+                <li><a href="../CLIENT/logout.php">LOG OUT</a></li>
+                <?php endif;?>
+             </ul>
+        </div>
+
+        
+            
+
+     <?php if($user_id == ""):?>
+        <div class="reg">
+            <!-- <ion-icon id="find" name="search-circle-outline"></ion-icon>
+            <a href="#"><ion-icon id="find" name="search"></ion-icon></a>
+            <input type="searchBar" name="searchBar" id="searchBar" placeholder="SearchBar">
+            <button type="submit" class="searchButton"><i class="fas fa-search"></i></button> -->
+        <button onclick="window.location.href='../LOGIN/SignUp.php'"  type="click" id="register">Register</button>
+        <button onclick="window.location.href='../LOGIN/SignUp.php'"  type="click" id="login">Log in</button>
+        </div>
+    <?php endif;?>
+    </div>
         <div class="main-photo-container">
             <img id="photo-main" src="../IMAGES/VegetablesAsthetics.jpg" alt="Main photo">
 
   <div class="container">
     <h1>Contact Form</h1>
     <form action="submit_form.php" method="POST" onsubmit="return validateForm()">
+
+      <?php if(!isset($user[0])):?>
       <label for="name">Name:</label>
       <input type="text" id="name" name="name">
       <div id="name-error" class="error"></div>
@@ -245,6 +267,17 @@ color:rgb(137, 188, 202);
       <label for="email">Email:</label>
       <input type="email" id="email" name="email">
       <div id="email-error" class="error"></div>
+      <?php endif;?>
+
+      <?php if(isset($user[0])):?>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" value=<?= $user['name'].' '.$user['surname']?> readonly>
+      <div id="name-error" class="error"></div>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" value=<?= $user['email']?> readonly>
+      <div id="email-error" class="error"></div>
+      <?php endif;?>
 
       <label for="message">Message:</label>
       <textarea id="message" name="message"></textarea>
