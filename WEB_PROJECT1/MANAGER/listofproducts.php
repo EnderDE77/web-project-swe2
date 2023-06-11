@@ -175,6 +175,8 @@
             <ul>
                 <li id="home-txt"><a href="manager.php">Create Product</a></li>
                 <li><a href="listofproducts.php">Product list</a></li>
+                <li><a href="contact_list.php">Contact list</a></li>
+                <li><a href="logout.php">LOG OUT</a></li>
             </ul>
         </div>
     </div>

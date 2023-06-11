@@ -35,7 +35,7 @@
                 return false;
             }
 
-            // Perform additional server-side validation
+            
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState === 4 && this.status === 200) {
@@ -47,7 +47,7 @@
                         document.getElementById("image").setAttribute("placeholder", response.imageError);
                         return false;
                     } else {
-                        // Validation passed, submit the form
+                       
                         document.forms["productForm"].submit();
                     }
                 }
@@ -56,7 +56,7 @@
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send("name=" + name + "&quantity=" + quantity + "&price=" + price + "&image=" + image);
 
-            return false; // Prevent form submission
+            return false; 
         }
     </script>
 </head>
@@ -71,6 +71,53 @@
                 <ul>
                     <li id="home-txt"><a href="#">Create Product</a></li>
                     <li><a href="listofproducts.php">Product list</a></li>
+                    <li><a href="contact_list.php">Contact list
+
+                    <?php
+                        
+                        $host = "localhost";
+                        $dbname = "database";
+                        $username = "root";
+
+                        $mySQL = new mysqli($host, $username, "", $dbname);
+
+                        if ($mySQL->connect_error) {
+                            die("Connect error: " . $mySQL->connect_error);
+                        }
+
+                        
+                        $unreadQuery = "SELECT COUNT(*) AS unreadCount FROM contact WHERE isRead = 0";
+                        $unreadResult = $mySQL->query($unreadQuery);
+
+                        if ($unreadResult && $unreadResult->num_rows > 0) {
+                            $unreadCount = $unreadResult->fetch_assoc()['unreadCount'];
+
+                            
+                            if ($unreadCount > 0) {
+                                echo "<span class='unread-count'>$unreadCount</span>";
+                            }
+                        }
+
+                        
+                        $mySQL->close();
+                        ?>
+
+                      <style>
+  
+
+    .unread-count {
+        display: inline-block;
+        padding: 2px 6px;
+        background-color: red;
+        color: white;
+        font-size: 12px;
+        border-radius: 50%;
+        margin-left: 5px;
+    }
+</style>
+
+                    </a></li>
+                    <li><a href="logout.php">LOG OUT</a></li>
                 </ul>
             </div>
         </div>
