@@ -5,6 +5,14 @@
         <link rel="stylesheet" href="../HOME/style.css">
     </head>
     <body> 
+        <style>
+            ul li{
+    list-style:none;
+    margin-right: 30px; 
+        
+    margin-left: 10px;
+}
+            </style>
     <div class="navbar">
 
         <div class="logo">
@@ -37,10 +45,6 @@
 
      <?php if($user_id == ""):?>
         <div class="reg">
-            <!-- <ion-icon id="find" name="search-circle-outline"></ion-icon>
-            <a href="#"><ion-icon id="find" name="search"></ion-icon></a>
-            <input type="searchBar" name="searchBar" id="searchBar" placeholder="SearchBar">
-            <button type="submit" class="searchButton"><i class="fas fa-search"></i></button> -->
         <button onclick="window.location.href='../LOGIN/SignUp.php'"  type="click" id="register">Register</button>
         <button onclick="window.location.href='../LOGIN/SignUp.php'"  type="click" id="login">Log in</button>
         </div>
@@ -48,13 +52,11 @@
     </div>
         </div>
 
-        <div class="Cart">
-            <ion-icon id="cart" name="cart"></ion-icon>
-        </div>
+       
 
         <br><br><br><br>
         <div class="DelPrices">
-            <h2>Delivery Prices</h2><br>
+            <h2 style="  background-color:  rgb(220, 208, 188);">Delivery Prices</h2><br>
             <table class="ShowTable" border="2">
                 <thead>
                     <th>Delivery Destination</th>
@@ -83,7 +85,7 @@
 
         <br><br><br><br>
         <div class="DelMethods">
-            <h2>Delivery Methods & Timescales</h2><br>
+            <h2 style="  background-color:  rgb(220, 208, 188);">Delivery Methods & Timescales</h2><br>
             <table class="ShowTable" border="2">
                 <thead>
                     <th>Courier</th>
